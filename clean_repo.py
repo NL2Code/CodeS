@@ -1,4 +1,4 @@
-# Before running this file you need to run the `/Users/zandaoguang/Desktop/Intern/huawei/codes/scripts/clean_repos.ipynb`
+# Before running this file you need to run the `./scripts/clean_repos.ipynb`
 
 # Copyright (c) Huawei Cloud.
 # Licensed under the MIT license.
