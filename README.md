@@ -34,7 +34,7 @@ Please see [./assets/codes_demo.mp4](./assets/codes_demo.mp4)
 ```bash
 bash run_step1_clean.sh
 ```
-3. Extract command training data for `reposketcher`, `filesketcher`, and `sketchfiller`:
+3. Extract command training data for `RepoSketcher`, `FileSketcher`, and `SketchFiller`:
 ```bash
 bash run_step2_extract_sketch.sh
 ```
@@ -56,7 +56,7 @@ bash ./train/run_train_multi_gpu.sh
 
 ## Evaluation
 
-1. Install `sketchbleu`, similar to `codebleu`.
+1. Install `SketchBLEU`, similar to `CodeBLEU`.
 
 2. Perform inference on `SketchEval`:
 ```bash
@@ -68,7 +68,7 @@ python ./codes/validation/evaluation-scripts/from_scratch_inference.py
 python ./codes/validation/evaluation-scripts/transfer_output_to_repo.py
 ```
 
-4. Evaluate the generated repository as with `codebleu`:
+4. Evaluate the generated repository as with `CodeBLEU`:
 
 ```bash
 python ./codes/validation/evaluation-scripts/batch_eval/get_metric.py
