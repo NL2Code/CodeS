@@ -1,0 +1,33 @@
+name: format
+
+on: [push, pull_request]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: pip3 install .[dev]
+
+    - name: Run --version
+      run: oj --version
+
+    - name: Run pylint
+      run: pylint --rcfile=setup.cfg onlinejudge_command tests setup.py
+
+    - name: Run isort
+      run: isort --check-only --diff onlinejudge_command tests setup.py
+
+    - name: Run yapf
+      run: yapf --diff --recursive onlinejudge_command tests setup.py
+
+    - name: Run mypy
+      run: mypy onlinejudge_command tests setup.py

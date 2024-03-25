@@ -1,0 +1,38 @@
+### ddt4all specific
+/ecus/
+/logs/
+/btpDB/
+/checkBaseDDT/
+/EDT/
+/failures/
+/FlashingTimeAnalysis/
+/vehicles/
+/venv/
+/zipper/
+*.htm
+*.xml
+*.zip
+/images/
+/graphics/
+/Output/
+/json/
+
+### Python generic ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+### IDE generic ###
+/.vscode/
+/.idea/
+/dist/
+/OdxSpecFiles/
+/TradConf.conf
+
+/build/
+/setup.py
+/setup.cfg
+/pyproject.toml
+/dtt4all_data/inno-win-setup/Output/
+/dtt4all_data/config.json

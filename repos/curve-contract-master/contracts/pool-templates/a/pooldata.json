@@ -1,0 +1,18 @@
+{
+  "wrapped_contract": "ATokenMock",
+  "pool_types": ["arate"],
+  "coins": [
+    {
+      "decimals": 18,
+      "wrapped_decimals": 18,
+      "wrapped": true,
+      "tethered": false
+    },
+    {
+      "decimals": 18,
+      "wrapped_decimals": 18,
+      "wrapped": true,
+      "tethered": false
+    }
+  ]
+}

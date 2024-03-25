@@ -1,0 +1,3 @@
+[submodule "example/isaacgym/IsaacGymEnvs"]
+	path = example/isaacgym/IsaacGymEnvs
+	url = https://github.com/NVIDIA-Omniverse/IsaacGymEnvs

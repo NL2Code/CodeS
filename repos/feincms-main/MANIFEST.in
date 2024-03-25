@@ -1,0 +1,8 @@
+include AUTHORS
+include CONTRIBUTING.rst
+include LICENSE
+include MANIFEST.in
+include README.rst
+recursive-include feincms/static *
+recursive-include feincms/locale *
+recursive-include feincms/templates *

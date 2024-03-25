@@ -1,0 +1,4 @@
+blinker
+coverage
+asgiref
+pytest

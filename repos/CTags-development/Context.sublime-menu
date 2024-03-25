@@ -1,0 +1,10 @@
+[
+	{
+		"caption": "-"
+	},
+	{
+		"caption": "Navigate to Definition",
+		"command": "navigate_to_definition",
+		"args": {}
+	}
+]

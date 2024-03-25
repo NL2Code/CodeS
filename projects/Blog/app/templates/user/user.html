@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <tr valign="top">
+        <td><img class="images" src="{{user.gravatar(200)}}"></td>
+        <td>
+            <h1>{{user.nickname}}'s profile</h1>
+            {% if user.about_me %}<p>{{user.about_me}}</p>{% endif %}
+            {% if user.last_seen %}<p><i>Last login time：{{moment(user.last_seen).format('LL')}}</i></p>{% endif %}
+            {% if user == current_user %}
+            <p>
+            <a href="{{url_for('user.edit_profile')}}">
+            <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-cog"></span> Modify profile
+            </button>
+            </a>
+            </p>
+            {% endif %}
+            {% if current_user.operation(Permission.FOLLOW) and user != current_user %}
+                {% if not current_user.is_following(user) %}
+                <a href="{{ url_for('user.follow', nickname=user.nickname) }}">
+                    <button type="button" class="btn btn-default btn-sm">
+                      <span class="glyphicon glyphicon-star"></span> Follow
+                    </button>
+                </a>
+                {% else %}
+                <a href="{{ url_for('user.unfollow', nickname=user.nickname) }}">
+                    <button type="button" class="btn btn-default btn-sm">
+                      <span class="glyphicon glyphicon-star-empty"></span> Unfollow
+                    </button>
+                </a>
+                {% endif %}
+            {% endif %}
+            <a href="{{ url_for('user.follows', nickname=user.nickname) }}">
+                Followers：
+            </a><span>{{ user.followers.count() }}</span>
+            <a href="{{ url_for('user.follows', nickname=user.nickname) }}">
+                Following：
+            </a><span>{{ user.followed.count() }}</span>
+            {% if current_user.is_authenticated and user != current_user and
+                user.is_following(current_user) %}
+            | <span>Followed you</span>
+            {% endif %}
+
+            {% if current_user != user %}
+            <a href="{{ url_for('message.write_letter',id=user.id) }}" class="btn btn-info">
+              <span class="glyphicon glyphicon-envelope"></span> Seed message
+            </a>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+<br>
+<h3>Published All Posts</h3>
+<hr>
+{% if posts %}
+{% for post in posts %}
+{% if not post.disabled %}
+{% include "_posts.html" %}<hr>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endblock %}

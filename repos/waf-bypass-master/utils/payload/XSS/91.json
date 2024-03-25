@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "ARGS": "setInterval`alert\\x28document.domain\\x29`",
+      "BODY": "setInterval`alert\\x28document.domain\\x29`",
+      "COOKIE": "setInterval`alert\\x28document.domain\\x29`",
+      "USER-AGENT": "setInterval`alert\\x28document.domain\\x29`",
+      "REFERER": "setInterval`alert\\x28document.domain\\x29`",
+      "HEADER": "setInterval`alert\\x28document.domain\\x29`",
+      "URL": "setInterval`alert\\x28document.domain\\x29`",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

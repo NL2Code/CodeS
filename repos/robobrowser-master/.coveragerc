@@ -1,0 +1,7 @@
+[report]
+omit =
+    robobrowser/ordereddict.py
+    robobrowser/responses.py
+    */python?.?/*
+    */lib-python/?.?/*.py
+    */pypy/*

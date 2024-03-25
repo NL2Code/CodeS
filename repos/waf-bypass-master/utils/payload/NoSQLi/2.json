@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "db.collection.find( { $where: function() { return (this.name == $userData) } } );",
+      "ARGS": "db.collection.find( { $where: function() { return (this.name == $userData) } } );",
+      "BODY": "db.collection.find( { $where: function() { return (this.name == $userData) } } );",
+      "COOKIE": "db.collection.find( { $where: function() { return (this.name == $userData) } } );",
+      "USER-AGENT": "db.collection.find( { $where: function() { return (this.name == $userData) } } );",
+      "REFERER": "db.collection.find( { $where: function() { return (this.name == $userData) } } );",
+      "HEADER": "db.collection.find( { $where: function() { return (this.name == $userData) } } );",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

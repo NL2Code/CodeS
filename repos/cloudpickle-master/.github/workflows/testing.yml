@@ -1,0 +1,211 @@
+name: Automated Tests
+
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    - name: Install pre-commit
+      shell: bash
+      run: |
+        python -V
+        python -m pip install pre-commit
+    - name: Run pre-commit linters
+      shell: bash
+      run: |
+        pre-commit run --files *
+
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python_version: ["3.8", "3.9", "3.10", "3.11", "3.12", "pypy-3.9"]
+        exclude:
+          # Do not test all minor versions on all platforms, especially if they
+          # are not the oldest/newest supported versions
+          - os: windows-latest
+            python_version: 3.8
+            # as of  4/02/2020, psutil won't build under PyPy + Windows
+          - os: windows-latest
+            python_version: "pypy-3.9"
+          - os: macos-latest
+            python_version: 3.8
+          - os: macos-latest
+            # numpy triggers: RuntimeError: Polyfit sanity test emitted a
+            # warning
+            python_version: "pypy-3.9"
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python_version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python_version }}
+        allow-prereleases: true
+    - name: Install project and dependencies
+      shell: bash
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -e .
+        python -m pip install -r dev-requirements.txt
+        python ci/install_coverage_subprocess_pth.py
+        export
+    - name: Display Python version
+      shell: bash
+      run: python -c "import sys; print(sys.version)"
+    - name: Test with pytest
+      shell: bash
+      run: |
+        COVERAGE_PROCESS_START=$GITHUB_WORKSPACE/.coveragerc \
+          PYTHONPATH='.:tests' python -m pytest -r s
+        coverage combine --append
+        coverage xml -i
+    - name: Publish coverage results
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage.xml
+
+  distributed-downstream-build:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.pull_request.labels.*.name, 'ci distributed') || contains(github.event.pull_request.labels.*.name, 'ci downstream')"
+    env:
+      PROJECT: distributed
+      TEST_REQUIREMENTS: cryptography pytest pytest-asyncio<0.14.0 pytest-timeout pytest-rerunfailures pytest-cov numpy pandas mock bokeh fsspec>=0.3.3 aiohttp pyarrow git+https://github.com/dask/dask
+      PROJECT_URL: https://github.com/dask/distributed.git
+    strategy:
+      matrix:
+        python_version: ["3.10"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python_version }}
+    - name: Install project and dependencies
+      run: |
+        bash ./.github/scripts/install_downstream_project.sh
+    - name: Install developed version of cloudpickle
+      shell: bash
+      run: |
+        python -m pip install -e .
+    - name: Test the downstream project
+      shell: bash
+      run: |
+        # FIXME ipv6-related failures on Ubuntu github actions CI
+        # https://github.com/dask/distributed/issues/4514
+        export DISABLE_IPV6=1
+        # - test_decide_worker_coschedule_order_neighbors is skipped because of:
+        #   https://github.com/dask/distributed/issues/8255
+        # - test_client_worker is skipped because it's a time-related test that
+        #   randomly fails on CI but seems unrelated to cloudpickle.
+        export PYTEST_ADDOPTS=("-m" "not avoid_ci" "-k" "not test_decide_worker_coschedule_order_neighbors and not test_client_worker")
+        source ./.github/scripts/test_downstream_project.sh
+
+  joblib-downstream-build:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.pull_request.labels.*.name, 'ci joblib') || contains(github.event.pull_request.labels.*.name, 'ci downstream')"
+    env:
+      PROJECT: joblib
+      TEST_REQUIREMENTS: "threadpoolctl pytest numpy distributed"
+      PROJECT_URL: https://github.com/joblib/joblib.git
+    strategy:
+      matrix:
+        python_version: ["3.10"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python_version }}
+    - name: Install project and dependencies
+      run: |
+        bash ./.github/scripts/install_downstream_project.sh
+    - name: Vendor current cloudpickle inside joblib
+      run: |
+        pushd ../joblib/joblib/externals
+        source vendor_cloudpickle.sh ../../../cloudpickle
+        popd
+    - name: Test the downstream project
+      run: |
+        bash ./.github/scripts/test_downstream_project.sh
+
+  loky-downstream-build:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.pull_request.labels.*.name, 'ci loky') || contains(github.event.pull_request.labels.*.name, 'ci downstream')"
+    env:
+      PROJECT: loky
+      TEST_REQUIREMENTS: "pytest psutil"
+      PROJECT_URL: https://github.com/joblib/loky.git
+    strategy:
+      matrix:
+        python_version: ["3.10"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python_version }}
+    - name: Install downstream project and dependencies
+      run: |
+        bash ./.github/scripts/install_downstream_project.sh
+    - name: Install developed version of cloudpickle
+      shell: bash
+      run: |
+        python -m pip install -e .
+    - name: Test the downstream project
+      run: |
+        bash ./.github/scripts/test_downstream_project.sh
+
+  ray-downstream-build:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.pull_request.labels.*.name, 'ci ray') || contains(github.event.pull_request.labels.*.name, 'ci downstream')"
+    env:
+      PROJECT: ray
+    strategy:
+      matrix:
+        python_version: ["3.11"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python_version }}
+    - name: Install project and tests dependencies
+      run: |
+        python -m pip install --upgrade -r dev-requirements.txt setproctitle psutil catboost \
+           https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-3.0.0.dev0-cp311-cp311-manylinux2014_x86_64.whl
+    - name: Test cloudpickle itself
+      run: |
+        COVERAGE_PROCESS_START="$TRAVIS_BUILD_DIR/.coveragerc" PYTHONPATH='.:tests' pytest -r s
+    - name: Patch Ray with the development version of cloudpickle
+      run: |
+        RAY_PACKAGE_DIR=$(python -c "import os, ray; print(os.path.dirname(ray.__file__), flush=True)")
+        cp cloudpickle/cloudpickle.py $RAY_PACKAGE_DIR/cloudpickle/cloudpickle.py
+        rm -rf $RAY_PACKAGE_DIR/cloudpickle/compat.py
+        cp cloudpickle/cloudpickle_fast.py $RAY_PACKAGE_DIR/cloudpickle/cloudpickle_fast.py
+    - name: Fetch the Ray test suite from github
+      run: |
+        pushd ..
+        git clone https://github.com/ray-project/ray.git
+        popd
+    - name: Run some tests from Ray's test suite
+      run: |
+        pushd ../ray/python/ray/tests
+        pytest -vl test_serialization.py::test_simple_serialization
+        pytest -vl test_serialization.py::test_complex_serialization
+        pytest -vl test_basic.py::test_ray_recursive_objects
+        pytest -vl test_serialization.py::test_serialization_final_fallback
+        pytest -vl test_basic.py::test_nested_functions

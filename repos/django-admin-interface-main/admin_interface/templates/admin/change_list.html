@@ -1,0 +1,33 @@
+{% extends "admin/change_list.html" %}
+{% load i18n admin_list admin_interface_tags %}
+{# copied from django 4.0.7 #}
+
+      {% block filters %}
+        {% if cl.has_filters %}
+          <div id="changelist-filter">
+            <h2>{% translate 'Filter' %}</h2>
+            {% get_admin_interface_active_date_hierarchy cl as active_date_hierarchy %}
+            {% get_admin_interface_setting "list_filter_removal_links" as list_filter_removal_links %}
+            {% if cl.has_active_filters %}
+             {% if list_filter_removal_links %}
+             {% if active_date_hierarchy %}{% admin_interface_date_hierarchy_removal_link cl active_date_hierarchy %}{% endif %}
+             {% for spec in cl.filter_specs %}{% admin_interface_filter_removal_link cl spec %}{% endfor %}
+             <h3 id="changelist-filter-clear">
+               <a href="{{ cl.clear_all_filters_qs }}">{% translate "Clear all filters" %} &#10006;</a>
+             </h3>
+             {% else %}
+             <h3 id="changelist-filter-clear">
+               {# Translators: don't translate this, the django catalog already contains it #}
+               <a href="{{ cl.clear_all_filters_qs }}">&#10006; {% translate "Clear all filters" %}</a>
+             </h3>
+             {% endif %}
+            {% elif active_date_hierarchy and list_filter_removal_links %}
+             {% admin_interface_date_hierarchy_removal_link cl active_date_hierarchy %}
+             <h3 id="changelist-filter-clear">
+               <a href="{{ cl.clear_all_filters_qs }}">{% translate "Clear all filters" %} &#10006;</a>
+             </h3>
+            {% endif %}
+            {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
+          </div>
+        {% endif %}
+      {% endblock %}

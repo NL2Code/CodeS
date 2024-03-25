@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<input autofocus onblur=alert(1)>",
+      "ARGS": "<input autofocus onblur=alert(1)>",
+      "BODY": "<input autofocus onblur=alert(1)>",
+      "COOKIE": "<input autofocus onblur=alert(1)>",
+      "USER-AGENT": "<input autofocus onblur=alert(1)>",
+      "REFERER": "<input autofocus onblur=alert(1)>",
+      "HEADER": "<input autofocus onblur=alert(1)>",
+      "ENCODE": "Base64 UTF-16 HTML-ENTITY",
+      "BLOCKED": true
+    }
+  ]
+}

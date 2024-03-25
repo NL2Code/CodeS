@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "_pages.html" as page %}
+
+{% block content %}
+<h3>
+    <i>Manage Posts <span class="badge">{{ nums }}</span></i> |
+    <a href="{{ url_for('admin.admin_comment') }}">Manage Comments</a>
+</h3><hr>
+{% for post in posts %}
+<div>
+    {% if post.disabled %}
+    <i><font color="#d2691e">This post or draft has been deleted.</font></i><br>
+    {% include "_posts.html" %}
+    {% endif %}
+    {% if not post.disabled %}
+    {% include "_posts.html" %}
+    {% endif %}
+</div>
+<div>
+    {% if post.disabled %}
+    <a class="btn btn-default btn-xs" href="{{ url_for('admin.recover_post',id=post.id,
+        page=page) }}">Recover</a>
+    {% else %}
+    <a class="btn btn-danger btn-xs" href="{{ url_for('admin.delate_post',id=post.id,
+        page=page) }}">Delete</a>
+    {% endif %}
+</div><hr>
+{% endfor %}
+<div class="pagination">
+    {{ page.pages(pagination, 'admin.admin_post') }}
+</div>
+{% endblock %}

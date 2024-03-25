@@ -1,0 +1,19 @@
+# Linting tools
+ruff
+pre-commit
+# Dependencies for running the tests with pytest
+pytest
+pytest-cov
+psutil
+# To be able to test tornado coroutines
+tornado
+# To be able to test numpy specific things
+# but do not build numpy from source on Python nightly
+numpy >=1.18.5; python_version <= '3.8'
+# Code coverage uploader for Travis:
+codecov
+coverage
+# Utility package used when running the cloudpickle test suite
+./tests/cloudpickle_testpkg
+# Required for setup of the above utility package:
+setuptools; python_version >= '3.12'

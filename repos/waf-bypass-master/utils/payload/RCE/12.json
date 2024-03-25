@@ -1,0 +1,14 @@
+{
+  "payload": [
+    {
+      "ARGS": "${jndi:dns://example.com/}",
+      "BODY": "param%RND%=${jndi:dns://example.com/}",
+      "COOKIE": "${jndi:dns://example.com/}",
+      "USER-AGENT": "${jndi:dns://example.com/}",
+      "REFERER": "${jndi:dns://example.com/}",
+      "HEADER": "${jndi:dns://example.com/}",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

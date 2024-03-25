@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<marquee loop=1 width=0 onfinish=alert(1)>",
+      "ARGS": "<marquee loop=1 width=0 onfinish=alert(1)>",
+      "BODY": "<marquee loop=1 width=0 onfinish=alert(1)>",
+      "COOKIE": "<marquee loop=1 width=0 onfinish=alert(1)>",
+      "USER-AGENT": "<marquee loop=1 width=0 onfinish=alert(1)>",
+      "REFERER": "<marquee loop=1 width=0 onfinish=alert(1)>",
+      "HEADER": "<marquee loop=1 width=0 onfinish=alert(1)>",
+      "ENCODE": "Base64 UTF-16 HTML-ENTITY",
+      "BLOCKED": true
+    }
+  ]
+}

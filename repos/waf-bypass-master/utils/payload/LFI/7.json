@@ -1,0 +1,14 @@
+{
+    "payload": [
+      {
+        "ARGS": "param%RND%=C:/WINNT/win.ini",
+        "BODY": "param%RND%=C:/WINNT/win.ini",
+        "COOKIE": "C:/WINNT/win.ini",
+        "USER-AGENT": "C:/WINNT/win.ini",
+        "REFERER": "C:/WINNT/win.ini",
+        "HEADER": "C:/WINNT/win.ini",
+        "ENCODE": "Base64 UTF-16",
+        "BLOCKED": true
+      }
+    ]
+  }

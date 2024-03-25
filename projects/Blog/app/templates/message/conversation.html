@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row clearfix">
+    <div class="col-md-3 column">
+        {% if receive_conv %}
+        <table>
+            <tr valign="top">
+                <td><img class="images" src="{{receive_conv[0].from_user.gravatar(150)}}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>{{receive_conv[0].from_user.nickname}}</h3>
+                    {% if receive_conv[0].from_user.about_me %}<p>{{receive_conv[0].from_user.about_me}}</p>{% endif %}
+                    {% if receive_conv[0].from_user.last_seen %}<p><i>{{receive_conv[0].from_user.last_seen}}</i></p>{% endif %}
+                </td>
+            </tr>
+        </table>
+        {% endif %}
+        <hr>
+        {% if send_conv %}
+        <table>
+            <tr valign="top">
+                <td><img class="images" src="{{current_user.gravatar(150)}}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>{{current_user.nickname}}</h3>
+                    {% if current_user.about_me %}<p>{{current_user.about_me}}</p>{% endif %}
+                    {% if current_user.last_seen %}<p><i>{{current_user.last_seen}}</i></p>{% endif %}
+                </td>
+            </tr>
+        </table>
+        {% endif %}
+    </div>
+    <div class="col-md-9 column">
+        {% if send_conv %}
+
+        <a href="{{ url_for('message.letter_message') }}">Back to Messages List</a>
+        <span class="letter"><b>With {{ send_conv[0].to_user.nickname }}'s conversations</b></span><hr>
+
+        {% endif %}
+        <ul class="list-group">
+            {% if receive_conv %}
+            {% for r_conv in receive_conv %}
+            <li class="list-group-item">
+                <table>
+                    <tr>
+                        <td><img class="images" src="{{r_conv.from_user.gravatar(30)}}"></td>
+                        <td>
+                            {{ r_conv.letter }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><i>{{ moment(r_conv.timestamp).fromNow() }}</i></td>
+                    </tr>
+                </table>
+            </li>
+            {% endfor %}
+            {% endif %}
+            <hr>
+            {% if send_conv %}
+            {% for s_conv in send_conv %}
+            <li class="list-group-item">
+                <div>
+                <table>
+                    <tr>
+                        <td><img class="images" src="{{current_user.gravatar(30)}}"></td>
+                        <td>
+                            {{ s_conv.letter }}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><i>{{ moment(s_conv.timestamp).fromNow() }}</i></td>
+                    </tr>
+                </table>
+                </div>
+            </li>
+            {% endfor %}
+            {% endif %}
+        </ul>
+        <br><hr>
+        <form action="" method="post" name="letter">
+        {{form.hidden_tag()}}
+        {{form.body(class="form-control",rows="3")}}<br>
+        {% for error in form.body.errors %}
+            <span style="color: red;">[{{error}}]</span>
+        {% endfor %}<br>
+        <p>
+            <input class="btn btn-default right" type="submit" value="Submit">
+        </p>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

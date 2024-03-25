@@ -1,0 +1,13 @@
+{
+  "payload": [
+    {
+      "ARGS": "param%RND%=apply.call%60%24%7Bnavigation.navigate%7D%24%7Bnavigation%7D%24%7B%5Bname%5D%7D%60",
+      "BODY": "param%RND%=apply.call%60%24%7Bnavigation.navigate%7D%24%7Bnavigation%7D%24%7B%5Bname%5D%7D%60",
+      "COOKIE": "apply.call%60%24%7Bnavigation.navigate%7D%24%7Bnavigation%7D%24%7B%5Bname%5D%7D%60",
+      "USER-AGENT": "apply.call%60%24%7Bnavigation.navigate%7D%24%7Bnavigation%7D%24%7B%5Bname%5D%7D%60",
+      "HEADER": "apply.call%60%24%7Bnavigation.navigate%7D%24%7Bnavigation%7D%24%7B%5Bname%5D%7D%60",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

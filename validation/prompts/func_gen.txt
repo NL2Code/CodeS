@@ -1,0 +1,35 @@
+Below is a detailed README.md of repository, repository sketch, as well as some relevant file sketches. Please fill the function body for the given function header.
+
+---
+README.md
+---
+{readme}
+
+---
+Repository Sketch
+---
+Here is a practicable repository sketch.
+{sketch}
+
+{relevant_file_sketches}
+
+---
+Current File Sketch/3
+---
+Here is the file sketch of `main/train_mlp.py`.
+
+```python
+{file_sketch}
+```
+
+---
+Function Complement
+---
+{func_sig}
+
+Here is a complete function body.
+
+```python
+[GENERATED]
+{func}
+```

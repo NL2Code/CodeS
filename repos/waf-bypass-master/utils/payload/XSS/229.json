@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<svg onload=alert%26%230000000040\"\")>>",
+      "ARGS": "<svg onload=alert%26%230000000040\"\")>>",
+      "BODY": "<svg onload=alert%26%230000000040\"\")>>",
+      "COOKIE": "<svg onload=alert%26%230000000040\"\")>>",
+      "USER-AGENT": "<svg onload=alert%26%230000000040\"\")>>",
+      "REFERER": "<svg onload=alert%26%230000000040\"\")>>",
+      "HEADER": "<svg onload=alert%26%230000000040\"\")>>",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

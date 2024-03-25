@@ -1,0 +1,10 @@
+{
+  "payload": [
+    {
+      "ARGS": "url=file:///e??/pa??wd",
+      "BODY": "url=file:///e??/pa??wd",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

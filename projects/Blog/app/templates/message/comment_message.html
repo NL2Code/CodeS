@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row clearfix">
+    <div class="col-md-3 column">
+        <a href="{{ url_for('message.letter_message') }}" class="list-group-item btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-envelope"></span> Message
+        </a><hr>
+        <a href="#" class="list-group-item active">
+            <span class="glyphicon glyphicon-comment"></span> Comment
+        </a>
+        <a href="{{ url_for('message.like_message') }}" class="list-group-item">
+            <span class="badge">{{ like }}</span><span class="glyphicon glyphicon-thumbs-up"></span> Like
+        </a>
+        <a href="{{ url_for('message.follow_message') }}" class="list-group-item">
+            <span class="badge">{{ follow }}</span><span class="glyphicon glyphicon-star"></span> Follow
+        </a>
+
+    </div>
+
+    <div class="col-md-9 column">
+        Comment<hr>
+        {% if comments == [] %}
+        <h4>Uh-oh, no new comments oh.</h4>
+        {% else %}
+        <ul class="list-group">
+            {% for comment in comments %}
+            <li class="list-group-item">
+                <div>
+                    <a href="{{ url_for('user.users', nickname=comment.author.nickname) }}">
+                        {{ comment.author.nickname }}
+                    </a>comments this post.
+                    <a href="{{ url_for('user.post', id=comment.post_id) }}">
+                        《{{ comment.post.title }}》
+                    </a>
+                    <span class="right"><i>{{ moment(comment.timestamp).fromNow() }}</i></span>
+                </div>
+            </li><br>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

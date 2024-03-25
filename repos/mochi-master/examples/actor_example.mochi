@@ -1,0 +1,39 @@
+def show_once():
+    receive:
+        message:
+            print(message)
+
+def show_loop():
+    receive:
+        PList(&rest):
+            print('aaa')
+            show_loop()
+        [tag, value]:
+            print(tag, value)
+            show_loop()
+        x:
+            print('Unsupported message!', x)
+            show_loop()
+
+
+actor1 = spawn(show_once)
+send("foo", actor1)
+
+actor2 = spawn(show_loop)
+actor2 ! ["bar", 2000]
+
+sleep(1)
+# -> bar 2000
+
+['foo', 1000] !> spawn(show_loop)
+
+sleep(1)
+# -> foo 1000
+
+[['foo', 1000],['bar', 2000]] !&> spawn(show_loop)
+
+sleep(1)
+# -> foo 1000
+# -> bar 2000
+
+wait_all()

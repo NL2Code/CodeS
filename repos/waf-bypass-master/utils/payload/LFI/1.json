@@ -1,0 +1,14 @@
+{
+    "payload": [
+      {
+        "ARGS": "param%RND%=../../../../../../../..//etc/passwd",
+        "BODY": "param%RND%=../../../../../../../..//etc/passwd",
+        "COOKIE": "../../../../../../../..//etc/passwd",
+        "USER-AGENT": "../../../../../../../..//etc/passwd",
+        "REFERER": "../../../../../../../..//etc/passwd",
+        "HEADER": "../../../../../../../..//etc/passwd",
+        "ENCODE": "Base64 UTF-16",
+        "BLOCKED": true
+      }
+    ]
+  }

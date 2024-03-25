@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<script src=\"https://example.com/angularjs/1.1.3/angularjs.min.js\"><div ng-app ng-csp id=p ng-click=$event.view.alert(1)>",
+      "ARGS": "<script src=\"https://example.com/angularjs/1.1.3/angularjs.min.js\"><div ng-app ng-csp id=p ng-click=$event.view.alert(1)>",
+      "BODY": "<script src=\"https://example.com/angularjs/1.1.3/angularjs.min.js\"><div ng-app ng-csp id=p ng-click=$event.view.alert(1)>",
+      "COOKIE": "<script src=\"https://example.com/angularjs/1.1.3/angularjs.min.js\"><div ng-app ng-csp id=p ng-click=$event.view.alert(1)>",
+      "USER-AGENT": "<script src=\"https://example.com/angularjs/1.1.3/angularjs.min.js\"><div ng-app ng-csp id=p ng-click=$event.view.alert(1)>",
+      "REFERER": "<script src=\"https://example.com/angularjs/1.1.3/angularjs.min.js\"><div ng-app ng-csp id=p ng-click=$event.view.alert(1)>",
+      "HEADER": "<script src=\"https://example.com/angularjs/1.1.3/angularjs.min.js\"><div ng-app ng-csp id=p ng-click=$event.view.alert(1)>",
+      "ENCODE": "Base64 UTF-16 HTML-ENTITY",
+      "BLOCKED": true
+    }
+  ]
+}

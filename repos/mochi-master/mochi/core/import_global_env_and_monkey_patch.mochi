@@ -1,0 +1,7 @@
+import mochi.core.builtins
+if isinstance(__builtins__, dict):
+    __builtins__.update(mochi.core.builtins.global_env)
+else:
+    __builtins__.__dict__.update(mochi.core.builtins.global_env)
+import eventlet
+eventlet.monkey_patch()

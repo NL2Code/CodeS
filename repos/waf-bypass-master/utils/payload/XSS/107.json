@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "\"o<x>nmouseover=alert<x>(1)//",
+      "ARGS": "\"o<x>nmouseover=alert<x>(1)//",
+      "BODY": "\"o<x>nmouseover=alert<x>(1)//",
+      "COOKIE": "\"o<x>nmouseover=alert<x>(1)//",
+      "USER-AGENT": "\"o<x>nmouseover=alert<x>(1)//",
+      "REFERER": "\"o<x>nmouseover=alert<x>(1)//",
+      "HEADER": "\"o<x>nmouseover=alert<x>(1)//",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

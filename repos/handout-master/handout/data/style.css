@@ -1,0 +1,74 @@
+@media print {
+  html, article {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    border: none !important;
+    font-size: 13px !important;
+  }
+  article {
+    /* This prevents page breaks within images. However, it also means images
+     * in one line will be centered without margin rather than spaced evenly. */
+    display: block !important;
+  }
+}
+
+html {
+  background: #eee;
+}
+
+h1 { font-size: 2.0em; margin: 0.4em 0; }
+h2 { font-size: 1.5em; margin: 0.4em 0; }
+h3 { font-size: 1.3em; margin: 0.4em 0; }
+h4 { font-size: 1.2em; margin: 0.4em 0; }
+h5 { font-size: 1.1em; margin: 0.4em 0; }
+h6 { font-size: 1.0em; margin: 0.4em 0; }
+
+article {
+  max-width: 48.5em;  /* Fit 79 characters. */
+  margin: 2em auto;
+  padding: 3em;
+  text-align: center;
+  font-size: 15px;
+  font-family: Helvetica, sans-serif;
+  background: #fff;
+  border-radius: .3em;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+article > * {
+  text-align: left;
+}
+
+article > div, article > pre, article > .message {
+  width: 100%;
+}
+
+article > div p, article > pre, article > .message {
+  margin: 0 0 1em;
+}
+
+article > .message + .message {
+  margin-top: -1em;
+}
+
+code {
+  text-align: left;
+  border-radius: .25em;
+  border: 1px solid #eee;
+}
+
+.message {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+img, video {
+  display: inline-block;
+  margin: 0 0 1em;
+  max-width: 100%;
+}

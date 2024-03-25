@@ -1,0 +1,13 @@
+{
+  "payload": [
+    {
+      "ARGS": "param%RND%=Reflect.set.call%60%24%7Blocation%7D%24%7B%27href%27%7D%24%7Bname%7D%60",
+      "BODY": "param%RND%=Reflect.set.call%60%24%7Blocation%7D%24%7B%27href%27%7D%24%7Bname%7D%60",
+      "COOKIE": "Reflect.set.call%60%24%7Blocation%7D%24%7B%27href%27%7D%24%7Bname%7D%60",
+      "USER-AGENT": "Reflect.set.call%60%24%7Blocation%7D%24%7B%27href%27%7D%24%7Bname%7D%60",
+      "HEADER": "Reflect.set.call%60%24%7Blocation%7D%24%7B%27href%27%7D%24%7Bname%7D%60",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

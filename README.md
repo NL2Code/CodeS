@@ -58,7 +58,7 @@ bash ./train/run_train_multi_gpu.sh
 
 1. Install `sketchbleu`, similar to `codebleu`.
 
-2. Perform inference in `SketchEval`:
+2. Perform inference on `SketchEval`:
 ```bash
 python ./codes/validation/evaluation-scripts/from_scratch_inference.py
 ```

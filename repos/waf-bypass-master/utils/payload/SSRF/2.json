@@ -1,0 +1,10 @@
+{
+  "payload": [
+    {
+      "ARGS": "url=http://localhost/admin",
+      "BODY": "url=http://localhost/admin",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

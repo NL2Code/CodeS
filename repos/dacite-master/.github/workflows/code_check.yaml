@@ -1,0 +1,53 @@
+name: Code Check
+
+on:
+  workflow_call:
+    secrets:
+      benchmark_token:
+        required: true
+    inputs:
+      publish_performance:
+        required: true
+        type: boolean
+      store_benchmark:
+        required: true
+        type: boolean
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ '3.7', '3.8', '3.9', '3.10', '3.11']
+
+    name: Python ${{ matrix.python-version }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+      - name: Testing Check
+        run: pytest --cov=dacite
+      - name: Formatting Check
+        run: black --check .
+      - name: Typing Check
+        run: mypy dacite
+      - name: Linting Check
+        run: pylint dacite
+      - name: Performance Check
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          tool: 'pytest'
+          output-file-path: benchmark.json
+          save-data-file: ${{ inputs.store_benchmark }}
+          github-token: ${{ secrets.benchmark_token }}
+          auto-push: ${{ inputs.publish_performance }}
+          benchmark-data-dir-path: performance/${{ matrix.python-version }}
+          comment-always: false
+          alert-threshold: '130%'
+          comment-on-alert: false
+          fail-on-alert: true

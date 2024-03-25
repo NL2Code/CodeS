@@ -1,0 +1,323 @@
+# This file is distributed under the same license as the
+# django-admin-interface package.
+#
+# Translators:
+# Martin Vuelta <martin.vuelta@softbutterfly.io>, 2018
+# Santiago Muñoz <smunoz@mythologylabs.com.uy>, 2023
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-admin-interface\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-10 18:20-0500\n"
+"PO-Revision-Date: 2023-08-04 11:52-0300\n"
+"Last-Translator: Santiago Muñoz <smunoz@mythologylabs.com.uy>\n"
+"Language-Team: Spanish <dev@softbutterfly.io>\n"
+"Language: Spanish \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin_interface/admin.py
+msgid "Environment"
+msgstr "Ambiente"
+
+#: admin_interface/admin.py
+msgid "Language chooser"
+msgstr "Selección de idioma"
+
+#: admin_interface/admin.py
+msgid "Logo"
+msgstr "Logo"
+
+#: admin_interface/admin.py
+msgid "Favicon"
+msgstr "Favicon"
+
+#: admin_interface/admin.py
+msgid "Title"
+msgstr "Título"
+
+#: admin_interface/admin.py
+msgid "Header"
+msgstr "Encabezado"
+
+#: admin_interface/admin.py
+msgid "Breadcrumbs / Module headers"
+msgstr "Breadcrumbs / Encabezados de módulos"
+
+#: admin_interface/admin.py
+msgid "Generic Links"
+msgstr "Enlaces genéricos"
+
+#: admin_interface/admin.py
+msgid "Save Buttons"
+msgstr "Botones de guardar"
+
+#: admin_interface/admin.py
+msgid "Delete Buttons"
+msgstr "Botones de borrar"
+
+#: admin_interface/admin.py
+msgid "Navigation Bar"
+msgstr "Barra de navegación"
+
+#: admin_interface/admin.py
+msgid "Related Modal"
+msgstr "Modal para objetos relacionados"
+
+#: admin_interface/admin.py
+msgid "Form Controls"
+msgstr "Controles del formulario"
+
+#: admin_interface/admin.py
+msgid "List Filter"
+msgstr "Lista de filtros"
+
+#: admin_interface/admin.py
+msgid "Change Form"
+msgstr "Cambiar Formulario"
+
+#: admin_interface/admin.py
+msgid "Inlines"
+msgstr ""
+
+#: admin_interface/admin.py
+msgid "Recent Actions"
+msgstr "Acciones recientes"
+
+#: admin_interface/apps.py
+msgid "Admin Interface"
+msgstr "Interfaz de administración"
+
+#: admin_interface/models.py
+msgid "name"
+msgstr "nombre"
+
+#: admin_interface/models.py
+msgid "active"
+msgstr "activo"
+
+#: admin_interface/models.py admin_interface/templates/admin/base_site.html
+msgid "Django administration"
+msgstr "Administración de Django"
+
+#: admin_interface/models.py
+msgid "title"
+msgstr "Título"
+
+#: admin_interface/models.py
+msgid "color"
+msgstr "color"
+
+#: admin_interface/models.py
+msgid "visible"
+msgstr "visible"
+
+#: admin_interface/models.py
+msgid "Leave blank to use the default Django logo"
+msgstr "Dejar en blanco para usar el logo por defecto de Django"
+
+#: admin_interface/models.py
+msgid "logo"
+msgstr "logo"
+
+#: admin_interface/models.py
+msgid "max width"
+msgstr "ancho máximo"
+
+#: admin_interface/models.py
+msgid "max height"
+msgstr "altura máxima"
+
+#: admin_interface/models.py
+msgid "(.ico|.png|.gif - 16x16|32x32 px)"
+msgstr "Formatos ico, png o gif. Tamaños de 16x16 o 32x32 pixeles"
+
+#: admin_interface/models.py
+msgid "favicon"
+msgstr "favicon"
+
+#: admin_interface/models.py
+msgid ""
+"(red: #E74C3C, orange: #E67E22, yellow: #F1C40F, green: #2ECC71, blue: "
+"#3498DB)"
+msgstr ""
+
+#: admin_interface/models.py
+msgid "visible in header (marker and name)"
+msgstr "visible en el encabezado (marcador y nombre)"
+
+#: admin_interface/models.py
+msgid "visible in favicon (marker)"
+msgstr "visible en el favicon (marcador)"
+
+#: admin_interface/models.py
+msgid "Default Select"
+msgstr "Selección por defecto"
+
+#: admin_interface/models.py
+msgid "Minimal Select"
+msgstr "Selección mínima"
+
+#: admin_interface/models.py
+msgid "control"
+msgstr "control"
+
+#: admin_interface/models.py
+msgid "code"
+msgstr "código"
+
+#: admin_interface/models.py
+msgid "display"
+msgstr "mostrar"
+
+#: admin_interface/models.py
+msgid "background color"
+msgstr "color de fondo"
+
+#: admin_interface/models.py
+msgid "text color"
+msgstr "color de texto"
+
+#: admin_interface/models.py
+msgid "link color"
+msgstr "color de enlace"
+
+#: admin_interface/models.py
+msgid "link hover color"
+msgstr "color de enlace (hover)"
+
+#: admin_interface/models.py
+#, fuzzy
+#| msgid "background color"
+msgid "background selected color"
+msgstr "color de fondo"
+
+#: admin_interface/models.py
+#, fuzzy
+#| msgid "link color"
+msgid "link selected color"
+msgstr "color de enlace"
+
+#: admin_interface/models.py
+msgid "rounded corners"
+msgstr "esquinas redondas"
+
+#: admin_interface/models.py
+msgid "link active color"
+msgstr "color de enlace (active)"
+
+#: admin_interface/models.py
+msgid "background hover color"
+msgstr "color de fondo (hover)"
+
+#: admin_interface/models.py
+msgid "background opacity"
+msgstr "opacidad de fondo"
+
+#: admin_interface/models.py
+msgid "close button visible"
+msgstr "mostrar botón de cerrar"
+
+#: admin_interface/models.py
+msgid "highlight active"
+msgstr "destacar activo"
+
+#: admin_interface/models.py
+msgid "use dropdown"
+msgstr "Usar lista desplegable"
+
+#: admin_interface/models.py
+msgid "sticky position"
+msgstr "anclar posición"
+
+#: admin_interface/models.py
+msgid "quick remove links for active filters at top of sidebar"
+msgstr "remover enlaces para filtros activos en la parte superior de la barra lateral"
+
+#: admin_interface/models.py
+msgid "foldable apps"
+msgstr "aplicaciones plegables"
+
+#: admin_interface/models.py
+msgid "fieldsets as tabs"
+msgstr "campos como pestañas"
+
+#: admin_interface/models.py
+msgid "inlines as tabs"
+msgstr "inlines como pestañas"
+
+#: admin_interface/models.py
+msgid "collapsible stacked inlines"
+msgstr "inlines apilados plegables"
+
+#: admin_interface/models.py
+msgid "collapsible stacked inlines collapsed"
+msgstr "inlines apilados plegables colapsados"
+
+#: admin_interface/models.py
+msgid "collapsible tabular inlines"
+msgstr "inlines tabulares plegables"
+
+#: admin_interface/models.py
+msgid "collapsible tabular inlines collapsed"
+msgstr "inlines tabulares plegables colapsados"
+
+#: admin_interface/models.py
+msgid "sticky submit"
+msgstr "anclar botón de guardar"
+
+#: admin_interface/models.py
+msgid "sticky pagination"
+msgstr "anclar paginación"
+
+#: admin_interface/models.py
+msgid "Theme"
+msgstr "Tema"
+
+#: admin_interface/models.py
+msgid "Themes"
+msgstr "Temas"
+
+#: admin_interface/templates/admin/change_list.html
+#, fuzzy
+#| msgid "List Filter"
+msgid "Filter"
+msgstr "Lista de filtros"
+
+#. Translators: don't translate this, the django catalog already contains it
+#: admin_interface/templates/admin/change_list.html
+msgid "Clear all filters"
+msgstr ""
+
+#: admin_interface/templates/admin/edit_inline/headerless_stacked.html
+#: admin_interface/templates/admin/edit_inline/headerless_tabular.html
+msgid "Change"
+msgstr ""
+
+#: admin_interface/templates/admin/edit_inline/headerless_stacked.html
+#: admin_interface/templates/admin/edit_inline/headerless_tabular.html
+msgid "View"
+msgstr ""
+
+#: admin_interface/templates/admin/edit_inline/headerless_stacked.html
+#: admin_interface/templates/admin/edit_inline/headerless_tabular.html
+msgid "View on site"
+msgstr ""
+
+#: admin_interface/templates/admin/edit_inline/headerless_tabular.html
+msgid "Delete?"
+msgstr ""
+
+#: admin_interface/templates/admin/filter.html
+#: admin_interface/templates/admin_interface/dropdown_filter.html
+#, python-format
+msgid " By %(filter_title)s "
+msgstr " Por %(filter_title)s "
+
+#: admin_interface/templates/admin/popup_response.html
+msgid "Popup closing..."
+msgstr "Cerando popup..."

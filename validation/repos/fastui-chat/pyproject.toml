@@ -1,0 +1,56 @@
+[project]
+name = "fastui-chat"
+version = "0.0.2"
+description = "Minimalistic chatbot ui using fastapi, fastui and langchain."
+authors = [
+    { name = "Shroominic", email = "contact@shroominic.com" }
+]
+dependencies = [
+    "langchain_core>=0.1",
+    "fastui[fastapi]>=0.4",
+    "uvicorn>=0.25",
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+license = "MIT"
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    "Intended Audience :: Developers",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "mypy>=1.7.1",
+    "ruff>=0.1.8",
+    "langchain[openai] >= 0.0.353",
+]
+
+[tool.rye.scripts]
+startapp = "python examples/simple_chatbot.py"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fastui_chat"]
+
+[tool.mypy]
+mypy_path = "src/"
+ignore_missing_imports = true
+follow_imports = "skip"
+exclude = "(fastui/.*|venv/.*|dist/.*|wheels/.*|.*egg-info)"
+
+[tool.ruff]
+select = ["E", "F", "I"]

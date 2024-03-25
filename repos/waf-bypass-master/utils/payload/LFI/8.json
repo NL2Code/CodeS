@@ -1,0 +1,14 @@
+{
+    "payload": [
+      {
+        "ARGS": "param%RND%=C:/WINDOWS/Repair/SAM",
+        "BODY": "param%RND%=C:/WINDOWS/Repair/SAM",
+        "COOKIE": "C:/WINDOWS/Repair/SAM",
+        "USER-AGENT": "C:/WINDOWS/Repair/SAM",
+        "REFERER": "C:/WINDOWS/Repair/SAM",
+        "HEADER": "C:/WINDOWS/Repair/SAM",
+        "ENCODE": "Base64 UTF-16",
+        "BLOCKED": true
+      }
+    ]
+  }

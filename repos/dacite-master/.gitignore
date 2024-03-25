@@ -1,0 +1,11 @@
+.pytest_cache/
+*.pyc
+dist/
+*.egg-info/
+build/
+.idea
+
+venv*
+
+.benchmarks
+benchmark.json

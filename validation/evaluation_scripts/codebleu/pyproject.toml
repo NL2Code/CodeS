@@ -1,0 +1,105 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel", "tree-sitter>=0.20.0,<1.0.0", "requests>=2.0.0,<3.0.0"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "codebleu"
+description = "Unofficial CodeBLEU implementation that supports Linux, MacOS and Windows available on PyPI."
+readme = "README.md"
+license = {text = "MIT License"}
+authors = [
+  {name = "Konstantin Chernyshev", email = "kdchernyshev@gmail.com"},
+]
+keywords = ["codebleu", "code", "bleu", "nlp", "natural language processing", "programming", "evaluate", "evaluation", "code generation", "metrics"]
+dynamic = ["version"]
+
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Typing :: Typed"
+]
+
+dependencies = [
+    "tree-sitter >=0.20.0,<1.0.0",
+    "setuptools >=61.0.0",  # distutils removed in 3.12, but distutils.ccompiler used in tree-sitter
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["codebleu", "codebleu.parser"]
+exclude = ["tests", "tests.*", "codebleu.parser.tree-sitter"]
+
+
+[tool.setuptools.package-data]
+"*" = ["py.typed", "*.txt", "*.so", "*.dylib", "*.dll", "keywords/*"]
+
+
+[project.scripts]
+codebleu = "codebleu.__main__:main"
+
+[project.urls]
+homepage = "https://github.com/k4black/codebleu"
+
+[project.optional-dependencies]
+test = [
+    "pytest >=7.0.0,<8.0.0",
+    "pytest-cov >=4.0.0,<5.0.0",
+    "pytest-mock >=3.0.0,<4.0.0",
+    "pytest-timeout >=2.0.0,<3.0.0",
+    "black ==23.12.0",
+    "mypy >=1.0.0,<2.0.0",
+    "types-tree-sitter",
+    "flake8 >=6.0.0,<8.0.0",
+    "ruff >=0.0.275,<0.2.0",
+    "isort >=5.0.0,<6.0.0",
+    "nltk >=3.0.0,<4.0.0",
+]
+
+[tool.setuptools.dynamic]
+version = {file = "VERSION"}
+
+
+[mypy]
+ignore_missing_imports = true
+no_incremental = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_subclassing_any = false
+disallow_any_generics = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unreachable = true
+allow_untyped_decorators = true
+exclude = ["codebleu/parser/tree-sitter", "codebleu/parser/tree-sitter/python", "tree_sitter"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "--cov=codebleu/ --cov-report term-missing"
+
+[tool.coverage.run]
+omit = ["tests/*", "codebleu/parser/tree-sitter/*", "tree_sitter"]
+
+
+[tool.isort]
+profile = "black"
+src_paths = ["codebleu", "tests"]
+known_first_party = ["codebleu", "tests"]
+line_length = 120
+combine_as_imports = true
+skip = ["build", "dist", ".venv", ".eggs", ".mypy_cache", ".pytest_cache", ".git", ".tox", ".nox", "codebleu/parser", "tree_sitter"]
+
+[tool.black]
+line_length=120
+target_version=["py38","py39","py310","py311", "py312"]
+
+[tool.ruff]
+line-length=120

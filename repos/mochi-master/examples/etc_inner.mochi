@@ -1,0 +1,6 @@
+module TestB:
+    export e, f, fafa
+    e = 200
+    def fafa():
+        print(10000)
+    f = "faf"

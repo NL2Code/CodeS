@@ -1,0 +1,22 @@
+databases[postgresql, mysql, sqlite]
+typesystem
+
+# Packaging
+twine
+wheel
+
+# Testing
+anyio>=3.0.0,<4
+autoflake
+black
+codecov
+flake8
+isort
+mypy
+pytest
+pytest-cov
+
+# Documentation
+mkdocs
+mkdocs-material
+mkautodoc

@@ -1,0 +1,19 @@
+{
+    "Description": "Test",
+    "Foo": {
+        "Fn::Sub": "The ${cake} is a lie"
+    },
+    "Bar": {
+        "Fn::Base64": {
+            "Ref": "Binary"
+        }
+    },
+    "Baz": {
+        "Fn::Sub": [
+            "The cake is a...\n${CakeStatus}",
+            {
+                "CakeStatus": "lie"
+            }
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "payload": [
+    {
+      "ARGS": "username[$ne]=toto&password[$regex]=m.{2}",
+      "BODY": "username[$ne]=toto&password[$regex]=m.{2}",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

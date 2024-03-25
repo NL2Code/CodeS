@@ -1,0 +1,9 @@
+{
+  "payload": [
+    {
+      "URL": "/db.sql",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

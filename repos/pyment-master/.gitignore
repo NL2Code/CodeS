@@ -1,0 +1,11 @@
+# Compiled files
+__pycache__/
+*.py[cod]
+build
+
+# Packaging related files
+*.egg
+*.egg-info
+
+# pycharm
+.idea/

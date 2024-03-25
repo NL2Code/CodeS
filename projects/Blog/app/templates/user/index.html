@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% import "_pages.html" as page %}
+
+{% block content %}
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <h4>
+        Hello,
+        {% if current_user.is_authenticated %}
+            {{current_user.nickname}}。{% if notice%}{{notice}}{%else%}Start your creation and let the world know you.{%endif%}
+        {% else %}
+            Adventurer, why wander alone? Join us and share your story.
+        {% endif %}
+        </h4><br>
+        {% if current_user.operation(Permission.WRITE_ARTICLES) %}
+        <a href="{{url_for('user.write')}}">
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-pencil"></span> Create New Post
+            </button>
+        </a> |
+        <a href="{{ url_for('user.draft') }}">
+            <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-file"></span> Draft
+            </button>
+        </a>
+        {% endif %}
+        {% if current_user.operation(Permission.ADMINISTER) %}
+        |
+        <a href="{{ url_for('admin.index') }}">
+            <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-cog"></span> Administer
+            </button>
+        </a>
+        {% endif %}
+    </div>
+</div>
+<hr>
+{% if posts %}
+{% for post in posts %}
+{% if not post.disabled %}
+{% include "_posts.html" %}<hr>
+{% endif %}
+{% endfor %}
+<div class="pagination">
+{{ page.pages(pagination, 'user.index') }}
+</div>
+{% endif %}
+{% endblock %}
+

@@ -1,0 +1,207 @@
+{
+  "projectName": "firefox_decrypt",
+  "projectOwner": "unode",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "CONTRIBUTORS.md",
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "gitmoji",
+  "contributors": [
+    {
+      "login": "unode",
+      "name": "Renato Alves",
+      "avatar_url": "https://avatars.githubusercontent.com/u/122319?v=4",
+      "profile": "https://gitlab.com/unode",
+      "contributions": [
+        "a11y",
+        "question",
+        "bug",
+        "code",
+        "content",
+        "data",
+        "design",
+        "doc",
+        "example",
+        "ideas",
+        "infra",
+        "maintenance",
+        "mentoring",
+        "platform",
+        "plugin",
+        "projectManagement",
+        "promotion",
+        "research",
+        "review",
+        "security",
+        "test",
+        "tool",
+        "tutorial",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "NeffIsBack",
+      "name": "Alex",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61382599?v=4",
+      "profile": "https://github.com/NeffIsBack",
+      "contributions": [
+        "platform"
+      ]
+    },
+    {
+      "login": "criztovyl",
+      "name": "Christoph Schulz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2174918?v=4",
+      "profile": "https://criztovyl.space/",
+      "contributions": [
+        "bug",
+        "code",
+        "doc",
+        "example",
+        "maintenance",
+        "test",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "sedrubal",
+      "name": "sedrubal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5571650?v=4",
+      "profile": "https://sedrubal.de/",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "DwordPtr",
+      "name": "Bryan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3793678?v=4",
+      "profile": "https://github.com/DwordPtr",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "edwintorok",
+      "name": "Török Edwin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/721894?v=4",
+      "profile": "https://github.com/edwintorok",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "eseifert",
+      "name": "Erich Seifert",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3323691?v=4",
+      "profile": "https://github.com/eseifert",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "catleeball",
+      "name": "Cat Lee Ball",
+      "avatar_url": "https://avatars.githubusercontent.com/u/43632885?v=4",
+      "profile": "https://catball.dev/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Gounlaf",
+      "name": "Florian Levis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/236413?v=4",
+      "profile": "http://www.levisflorian.name/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "thomasmerz",
+      "name": "Thomas Merz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/18568381?v=4",
+      "profile": "https://github.com/thomasmerz",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "stweil",
+      "name": "Stefan Weil",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6734573?v=4",
+      "profile": "https://github.com/stweil",
+      "contributions": [
+        "a11y"
+      ]
+    },
+    {
+      "login": "tennox",
+      "name": "Manuel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2084639?v=4",
+      "profile": "https://dev.page/tennox",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Anthropohedron",
+      "name": "Anthropohedron",
+      "avatar_url": "https://avatars.githubusercontent.com/u/107431?v=4",
+      "profile": "https://github.com/Anthropohedron",
+      "contributions": [
+        "code",
+        "platform"
+      ]
+    },
+    {
+      "login": "alejandro-amo",
+      "name": "Alejandro Amo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1114811?v=4",
+      "profile": "http://alejandroamo.eu/",
+      "contributions": [
+        "code",
+        "platform"
+      ]
+    },
+    {
+      "login": "yermulnik",
+      "name": "George L. Yermulnik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1274789?v=4",
+      "profile": "https://github.com/yermulnik",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "rma-x",
+      "name": "rma-x",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4435732?v=4",
+      "profile": "https://github.com/rma-x",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "utrack",
+      "name": "Nick Koptelov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3862920?v=4",
+      "profile": "https://github.com/utrack",
+      "contributions": [
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": true,
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/github/all-contributors/unode/firefox_decrypt?color=ee8449&style=flat-square)](CONTRIBUTORS.md#contributors)",
+  "linkToUsage": true
+}

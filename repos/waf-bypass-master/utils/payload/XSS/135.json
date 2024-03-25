@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<x ondrag=alert(1)>drag this!",
+      "ARGS": "<x ondrag=alert(1)>drag this!",
+      "BODY": "<x ondrag=alert(1)>drag this!",
+      "COOKIE": "<x ondrag=alert(1)>drag this!",
+      "USER-AGENT": "<x ondrag=alert(1)>drag this!",
+      "REFERER": "<x ondrag=alert(1)>drag this!",
+      "HEADER": "<x ondrag=alert(1)>drag this!",
+      "ENCODE": "Base64 UTF-16 HTML-ENTITY",
+      "BLOCKED": true
+    }
+  ]
+}

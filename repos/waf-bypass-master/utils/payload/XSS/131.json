@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<x oncopy=alert(1)>copy this!",
+      "ARGS": "<x oncopy=alert(1)>copy this!",
+      "BODY": "<x oncopy=alert(1)>copy this!",
+      "COOKIE": "<x oncopy=alert(1)>copy this!",
+      "USER-AGENT": "<x oncopy=alert(1)>copy this!",
+      "REFERER": "<x oncopy=alert(1)>copy this!",
+      "HEADER": "<x oncopy=alert(1)>copy this!",
+      "ENCODE": "Base64 UTF-16 HTML-ENTITY",
+      "BLOCKED": true
+    }
+  ]
+}

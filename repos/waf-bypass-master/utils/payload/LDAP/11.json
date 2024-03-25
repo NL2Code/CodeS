@@ -1,0 +1,10 @@
+{
+  "payload": [
+    {
+      "ARGS": "%29%28cn%3D%29%29%5Cx00",
+      "BODY": "%29%28cn%3D%29%29%5Cx00",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "payload": [
+    {
+      "URL": "'onload=alert(1)><svg/1='",
+      "ARGS": "'onload=alert(1)><svg/1='",
+      "BODY": "'onload=alert(1)><svg/1='",
+      "COOKIE": "'onload=alert(1)><svg/1='",
+      "REFERER": "'onload=alert(1)><svg/1='",
+      "HEADER": "'onload=alert(1)><svg/1='",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

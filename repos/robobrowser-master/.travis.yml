@@ -1,0 +1,20 @@
+language: python
+sudo: false
+
+python:
+    - "3.4"
+    - "3.3"
+    - "2.7"
+    - "2.6"
+    - "pypy"
+
+install:
+    - python setup.py install
+    - pip install -U -r dev-requirements.txt
+    - pip install coverage coveralls nose responses
+
+before_script: flake8 robobrowser
+
+script: nosetests --with-coverage --cover-package=robobrowser
+
+after_success: coveralls

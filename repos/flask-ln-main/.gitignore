@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+docs/_build/
+dist/
+venv/

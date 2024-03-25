@@ -1,0 +1,52 @@
+{% extends "admin/base_site.html" %}
+{% load cache controlcenter_tags %}
+
+{% block title %}{{ dashboard.title }}{% endblock %}
+{% block extrahead %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ dashboard.media }}
+{% endblock %}
+{% block content %}
+<div class="controlcenter" id="{{ dashboard.slug }}">
+    {% if dashboards|length > 1 %}
+        <nav class="controlcenter__nav">
+            {% for item in dashboards %}
+                {% if dashboard == item %}
+                    <div class="controlcenter__nav__item controlcenter__nav__item--active">{{ item.title }}</div>
+                {% else %}
+                    <a class="controlcenter__nav__item" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+                {% endif %}
+            {% endfor %}
+        </nav>
+    {% endif %}
+    <div class="controlcenter__masonry">
+        <div class="controlcenter__masonry__offset">
+            {% for group in groups %}
+                <div id="{{ group.get_id }}" class="controlcenter__masonry__block controlcenter__masonry__block--w{{ group.get_width }} {{ group.get_class }}" {% for key, value in group.get_attrs.vieitems %}{{ key }}="{{ value }}"{% endfor %}>
+                    <div class="controlcenter__widget">
+                        {% for widget in group %}
+                            <div class="controlcenter__widget__tab{% if forloop.first %} controlcenter__widget__tab--active{% endif %}">{{ widget.title }}</div>
+                            <div class="controlcenter__widget__body" {% if group.get_height %}style="max-height:{{ group.get_height  }}px"{% endif %}>
+                                {% if widget.subtitle %}
+                                    <div class="controlcenter__widget__subtitle">{{ widget.subtitle }}</div>
+                                {% endif %}
+                                {% if widget.cache_timeout %}
+                                    {% cache widget.cache_timeout controlcenter_widget widget.slug %}
+                                        {% include widget.get_template_name %}
+                                    {% endcache %}
+                                {% else %}
+                                    {% include widget.get_template_name %}
+                                {% endif %}
+                            </div>
+                            {% if widget.changelist_url %}
+                                <a class="controlcenter__widget__out" href="{{ widget|changelist_url }}" title="Show more"></a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="controlcenter__masonry__block--sizer controlcenter__masonry__block--w1"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

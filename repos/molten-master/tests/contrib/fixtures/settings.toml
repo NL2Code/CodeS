@@ -1,0 +1,19 @@
+[common]
+conn_pooling = true
+conn_pool_size = 1
+
+[common.sessions]
+secret = "supersekrit"
+
+[[common.oauth_providers]]
+name = "Facebook"
+secret = "facebook-secret"
+
+[[common.oauth_providers]]
+name = "Google"
+secret = "google-secret"
+
+[dev]
+
+[prod]
+conn_pool_size = 32

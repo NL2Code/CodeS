@@ -1,0 +1,30 @@
+Below is a detailed README.md of repository, repository sketch, as well as a file path. Please write a corresponding file sketch using Python style.
+
+---
+README.md
+---
+{readme}
+
+---
+Repository Sketch
+---
+Here is a practicable repository sketch.
+
+```
+{sketch}
+```
+
+---
+File Path
+---
+{file_path}
+
+---
+File Sketch
+---
+Here is a practicable file sketch.
+
+```python
+[GENERATED]
+{file_sketch}
+```

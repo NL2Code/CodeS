@@ -1,0 +1,16 @@
+{
+  "payload": [
+    {
+      "URL": "%3Bcat%252B%252Fe%253F%253F%252Fpa%253F%253F%253Fd",
+      "ARGS": "%3Bcat%252B%252Fe%253F%253F%252Fpa%253F%253F%253Fd",
+      "BODY": "%3Bcat%252B%252Fe%253F%253F%252Fpa%253F%253F%253Fd",
+      "COOKIE": "%3Bcat%252B%252Fe%253F%253F%252Fpa%253F%253F%253Fd",
+      "USER-AGENT": "%3Bcat%252B%252Fe%253F%253F%252Fpa%253F%253F%253Fd",
+      "REFERER": "%3Bcat%252B%252Fe%253F%253F%252Fpa%253F%253F%253Fd",
+      "HEADER": "%3Bcat%252B%252Fe%253F%253F%252Fpa%253F%253F%253Fd",
+      "METHOD": "SPST",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

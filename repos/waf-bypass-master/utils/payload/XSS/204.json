@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "prompt.call(null%25252C1)",
+      "ARGS": "param%RND%=prompt.call(null%25252C1)",
+      "BODY": "param%RND%=prompt.call(null%25252C1)",
+      "COOKIE": "prompt.call(null%25252C1)",
+      "USER-AGENT": "prompt.call(null%25252C1)",
+      "REFERER": "http://example.com/?prompt.call(null%25252C1)",
+      "HEADER": "prompt.call(null%25252C1)",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

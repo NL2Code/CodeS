@@ -1,0 +1,108 @@
+name: Publish trzsz to PyPI
+on:
+  release:
+    types: [released]
+jobs:
+  build-and-publish:
+    name: Build and publish trzsz to PyPI
+    runs-on: ubuntu-latest
+    outputs:
+      trzsz_version: ${{ steps.trzsz_version.outputs.version_number }}
+    steps:
+      - name: Checkout trzsz
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install Python Dependencies
+        run: python3 -m pip install --upgrade setuptools wheel
+      - name: Get trzsz version
+        id: trzsz_version
+        run: python3 .github/workflows/get_trzsz_version.py
+        working-directory: .
+      - name: Build trzsz
+        run: python3 setup.py sdist bdist_wheel
+        working-directory: .
+      - name: Build trzsz-libs
+        run: python3 setup.py sdist bdist_wheel
+        working-directory: trzsz-libs
+      - name: Build trzsz-svr
+        run: python3 setup.py sdist bdist_wheel
+        working-directory: trzsz-svr
+      - name: Build trzsz-iterm2
+        run: python3 setup.py sdist bdist_wheel
+        working-directory: trzsz-iterm2
+      - name: Publish trzsz to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TRZSZ_PYPI_API_TOKEN }}
+          packages_dir: dist/
+      - name: Publish trzsz-libs to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TRZSZ_LIBS_PYPI_API_TOKEN }}
+          packages_dir: trzsz-libs/dist/
+      - name: Publish trzsz-svr to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TRZSZ_SVR_PYPI_API_TOKEN }}
+          packages_dir: trzsz-svr/dist/
+      - name: Publish trzsz-iterm2 to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TRZSZ_ITERM2_PYPI_API_TOKEN }}
+          packages_dir: trzsz-iterm2/dist/
+  test-python2:
+    name: Install trzsz with Python2
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: MatteoH2O1999/setup-python@v2
+        with:
+          python-version: "2.7"
+      - name: Wait 10 minute
+        run: sleep 600
+      - name: Install trzsz
+        run: pip install trzsz==${{ needs.build-and-publish.outputs.trzsz_version }}
+      - name: Test trz
+        run: trz -v
+      - name: Test tsz
+        run: tsz -v
+  test-python3:
+    name: Install trzsz with Python3
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.7"
+      - name: Wait 10 minute
+        run: sleep 600
+      - name: Install trzsz
+        run: python3 -m pip install --upgrade trzsz==${{ needs.build-and-publish.outputs.trzsz_version }}
+      - name: Test trz
+        run: trz -v
+      - name: Test tsz
+        run: tsz -v
+  test-macos:
+    name: Install trzsz on MacOS
+    needs: build-and-publish
+    runs-on: macos-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.7"
+      - name: Wait 10 minute
+        run: sleep 600
+      - name: Install trzsz with iterm2
+        run: python3 -m pip install --upgrade trzsz[iterm2]==${{ needs.build-and-publish.outputs.trzsz_version }}
+      - name: Test trz
+        run: trz -v
+      - name: Test tsz
+        run: tsz -v
+      - name: Test trzsz-iterm2
+        run: trzsz-iterm2 -v

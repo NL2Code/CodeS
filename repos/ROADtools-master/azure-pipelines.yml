@@ -1,0 +1,179 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+jobs:
+- job: Tests
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  strategy:
+    matrix:
+      Python37:
+        python.version: '3.7'
+      Python38:
+        python.version: '3.8'
+      Python39:
+        python.version: '3.9'
+      Python310:
+        python.version: '3.10'
+      Python311:
+        python.version: '3.11'
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+    displayName: 'Use Python $(python.version)'
+
+  - script: |
+      python -m pip install --upgrade pip
+    displayName: 'Install pip'
+
+  - script: |
+      pip install .
+      find roadtools/ -name '*.py' -exec python -m py_compile {} \;
+    displayName: 'Install ROADlib'
+    workingDirectory: roadlib
+
+  - script: |
+      pip install .
+      pip install neo4j-driver
+      find roadtools/ -name '*.py' -exec python -m py_compile {} \;
+    displayName: 'Install ROADrecon'
+    workingDirectory: roadrecon
+
+  - script: |
+      pip install .
+      find roadtools/ -name '*.py' -exec python -m py_compile {} \;
+    displayName: 'Install roadtx'
+    workingDirectory: roadtx
+
+  - script: |
+      set -e
+      roadrecon -h
+      roadrecon-gui -h
+      roadrecon plugin bloodhound -h
+      roadrecon auth -u $rtuser -p $rtpass
+      roadrecon dump
+      roadrecon plugin policies
+      roadrecon plugin xlsexport
+      rm .roadtools_auth
+      rm caps.html
+    displayName: 'Run ROADrecon gathering tests'
+    env:
+      rtuser: $(rtuser)
+      rtpass: $(rtpass)
+
+  - script: |
+      set -e
+      roadtx -h
+      roadtx gettokens -u $rtuser -p $rtpass
+      roadtx gettokens -u $rtuser -p $rtpass -c azcli -r azrm
+      roadtx gettokens --refresh-token file -c msteams
+      rm .roadtools_auth
+    displayName: 'Run basic roadtx tests'
+    env:
+      rtuser: $(rtuser)
+      rtpass: $(rtpass)
+
+  - script: |
+      set -e
+      roadtx gettokens -u $rtuser -p $rtpass -r drs
+      roadtx device -a join -c pipeline.pem -k pipeline.key
+      retry_if_fail()
+      {
+          for i in 1 2 3 4 5; do "$@" && break || sleep 10s; done
+      }
+      retry_if_fail roadtx prt -a request -c pipeline.pem -k pipeline.key -u $rtuser -p $rtpass >/dev/null
+      retry_if_fail roadtx prtauth
+      retry_if_fail roadtx prt -a renew >/dev/null
+      retry_if_fail roadtx prtauth -c azcli -r azrm
+      roadtx device -a delete -c pipeline.pem -k pipeline.key
+      rm .roadtools_auth pipeline.pem pipeline.key
+    displayName: 'Run roadtx device tests'
+    env:
+      rtuser: $(rtuser)
+      rtpass: $(rtpass)
+
+  - script: |
+      pip install pytest pytest-flask
+      py.test tests/
+    displayName: 'Run ROADrecon API tests'
+
+- job: Build
+  dependsOn: Tests
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.8'
+    displayName: 'Use Python 3.8'
+  - task: Npm@1
+    inputs:
+      command: 'install'
+      workingDir: 'roadrecon/frontend/'
+
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      workingDir: 'roadrecon/frontend/'
+      customCommand: 'run build -- --configuration production'
+
+  - script: |
+      pip install --upgrade setuptools wheel
+    displayName: 'Update setuptools'
+
+  - script: |
+      pip install .
+      python setup.py sdist
+      python setup.py bdist_wheel
+    displayName: 'Create roadlib package'
+    workingDirectory: roadlib
+
+  - script: |
+      pip install .
+      python setup.py sdist
+      python setup.py bdist_wheel
+    displayName: 'Create ROADrecon package'
+    workingDirectory: roadrecon
+
+  - script: |
+      pip install .
+      python setup.py sdist
+      python setup.py bdist_wheel
+    displayName: 'Create roadtx package'
+    workingDirectory: roadtx
+
+  - task: CopyFiles@2
+    displayName: 'Copy ROADrecon Files to: $(build.artifactstagingdirectory)'
+    inputs:
+      SourceFolder: 'roadrecon/dist/'
+      Contents: '*'
+      TargetFolder: '$(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
+
+  - task: CopyFiles@2
+    displayName: 'Copy ROADlib Files to: $(build.artifactstagingdirectory)'
+    inputs:
+      SourceFolder: 'roadlib/dist/'
+      Contents: '*'
+      TargetFolder: '$(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
+
+  - task: CopyFiles@2
+    displayName: 'Copy roadtx Files to: $(build.artifactstagingdirectory)'
+    inputs:
+      SourceFolder: 'roadtx/dist/'
+      Contents: '*'
+      TargetFolder: '$(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: ROADtools

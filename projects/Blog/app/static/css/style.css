@@ -1,0 +1,77 @@
+/*自己的样式*/
+body{
+    background-color: #ECEEEF;
+}
+.right{
+    margin: 0 5px 0 5px;
+    float: right;
+}
+.left{
+    margin: 0 5px 0 5px;
+    float: left;
+}
+.art_outline{
+    margin-left: 50px;
+}
+.outline a:link {color:black;} /*未访问颜色*/
+.outline a:visited {color:gray;} /*已访问颜色*/
+.title a:visited {color: #9493c7;}
+.main{
+    margin: 12px 0;
+    padding: 40px;
+    background: #fcfcf7;
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+}
+.comments{
+    text-indent: 35px;
+}
+.images{
+    margin-right: 10px;
+}
+.images2{
+    margin-left: 20px;
+}
+.taga{
+    color: #dde6ef;
+}
+
+.post{
+    color: #2f2f2f;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+
+}
+
+.footer {
+	background: #2a2727;
+	padding: 15px 0 5px;
+	font-size: 13px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+}
+.footer-content {
+    text-align: center;
+    color: #f8b136;
+}
+.footer-content a {
+    text-decoration: none;
+}
+.admin_user{
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+/*floatButton*/
+.floatButton {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 9999999;
+}
+.letter{
+    margin: 100px;
+}
+/*editor*/

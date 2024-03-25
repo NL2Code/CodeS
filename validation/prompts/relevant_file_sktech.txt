@@ -1,0 +1,8 @@
+---
+Relevant File Sketch/{id}
+---
+Here is the file sketch of `{file_path}`.
+
+```python
+{file_sketch}
+```

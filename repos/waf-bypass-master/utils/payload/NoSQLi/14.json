@@ -1,0 +1,10 @@
+{
+  "payload": [
+    {
+      "ARGS": "login[$nin][]=admin&login[$nin][]=test&pass[$ne]=toto",
+      "BODY": "login[$nin][]=admin&login[$nin][]=test&pass[$ne]=toto",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<isindex formaction=javascript:alert(1) type=submit value=click>",
+      "ARGS": "<isindex formaction=javascript:alert(1) type=submit value=click>",
+      "BODY": "<isindex formaction=javascript:alert(1) type=submit value=click>",
+      "COOKIE": "<isindex formaction=javascript:alert(1) type=submit value=click>",
+      "USER-AGENT": "<isindex formaction=javascript:alert(1) type=submit value=click>",
+      "REFERER": "<isindex formaction=javascript:alert(1) type=submit value=click>",
+      "HEADER": "<isindex formaction=javascript:alert(1) type=submit value=click>",
+      "ENCODE": "Base64 UTF-16 HTML-ENTITY",
+      "BLOCKED": true
+    }
+  ]
+}

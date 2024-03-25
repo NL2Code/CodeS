@@ -1,0 +1,6 @@
+#Rule 1
+filetype: [".*"]
+filetype_weight: 0
+grep_words: ["*pass*", "*secret*"]
+grep_word_occurrence: 1
+grep_words_weight: 10

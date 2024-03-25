@@ -1,0 +1,4 @@
+python from_scratch_gpt35_eval.py --project pyobd --repo_dir ../../cleaned_repos --output_dir ../../evaluation_results/gpt35_from_scratch --model gpt-3.5-turbo-0613
+python from_scratch_gpt35_eval.py --project smol-podcaster --repo_dir ../../cleaned_repos --output_dir ../../evaluation_results/gpt35_from_scratch --model gpt-3.5-turbo-0613
+python from_scratch_gpt35_eval.py --project pitch-visualizer --repo_dir ../../cleaned_repos --output_dir ../../evaluation_results/gpt35_from_scratch --model gpt-3.5-turbo-0613
+python from_scratch_gpt35_eval.py --project easier-docker --repo_dir ../../cleaned_repos --output_dir ../../evaluation_results/gpt35_from_scratch --model gpt-3.5-turbo-0613

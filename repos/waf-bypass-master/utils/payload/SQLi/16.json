@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "query=login&username=rrr';SELECT PG_SLEEP(5)--&password=rr&submit=Login",
+      "ARGS": "query=login&username=rrr';SELECT PG_SLEEP(5)--&password=rr&submit=Login2",
+      "BODY": "query=login&username=rrr';SELECT PG_SLEEP(5)--&password=rr&submit=Login",
+      "HEADER": "query=login&username=rrr';SELECT PG_SLEEP(5)--&password=rr&submit=Login",
+      "USER-AGENT": "query=login&username=rrr';SELECT PG_SLEEP(5)--&password=rr&submit=Login",
+      "REFERER": "query=login&username=rrr';SELECT PG_SLEEP(5)--&password=rr&submit=Login",
+      "COOKIE": "query=login&username=rrr';SELECT PG_SLEEP(5)--&password=rr&submit=Login",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

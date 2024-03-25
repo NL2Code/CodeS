@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>"{{query}}"'s results：</h3><hr>
+{% for post in posts %}
+{% if post.draft == False %}
+{% include '_posts.html' %}
+{% endif %}
+{% endfor %}
+{% endblock %}

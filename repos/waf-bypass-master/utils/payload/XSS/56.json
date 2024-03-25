@@ -1,0 +1,14 @@
+{
+  "payload": [
+    {
+      "URL": "</xmp><svg onload=alert(1)>",
+      "ARGS": "</xmp><svg onload=alert(1)>",
+      "BODY": "</xmp><svg onload=alert(1)>",
+      "COOKIE": "</xmp><svg onload=alert(1)>",
+      "REFERER": "</xmp><svg onload=alert(1)>",
+      "HEADER": "</xmp><svg onload=alert(1)>",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

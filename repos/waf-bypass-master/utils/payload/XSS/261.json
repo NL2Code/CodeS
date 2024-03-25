@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<script src=\"https://example.com/jsonp?callback=payload\">",
+      "ARGS": "<script src=\"https://example.com/jsonp?callback=payload\">",
+      "BODY": "<script src=\"https://example.com/jsonp?callback=payload\">",
+      "COOKIE": "<script src=\"https://example.com/jsonp?callback=payload\">",
+      "USER-AGENT": "<script src=\"https://example.com/jsonp?callback=payload\">",
+      "REFERER": "<script src=\"https://example.com/jsonp?callback=payload\">",
+      "HEADER": "<script src=\"https://example.com/jsonp?callback=payload\">",
+      "ENCODE": "Base64 UTF-16 HTML-ENTITY",
+      "BLOCKED": true
+    }
+  ]
+}

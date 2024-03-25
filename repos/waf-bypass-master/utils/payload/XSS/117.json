@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<math><brute href=javascript:alert(1)>click",
+      "ARGS": "<math><brute href=javascript:alert(1)>click",
+      "BODY": "<math><brute href=javascript:alert(1)>click",
+      "COOKIE": "<math><brute href=javascript:alert(1)>click",
+      "USER-AGENT": "<math><brute href=javascript:alert(1)>click",
+      "REFERER": "<math><brute href=javascript:alert(1)>click",
+      "HEADER": "<math><brute href=javascript:alert(1)>click",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

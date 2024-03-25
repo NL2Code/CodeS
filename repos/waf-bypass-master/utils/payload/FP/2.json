@@ -1,0 +1,10 @@
+{
+  "payload": [
+    {
+      "ARGS": "select_items=yes",
+      "BODY": "select_items=yes",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": false
+    }
+  ]
+}

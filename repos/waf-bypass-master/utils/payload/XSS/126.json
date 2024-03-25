@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<iframe srcdoc=<svg/o%26%23x6Eload%26equals%3Balert%26lpar%3B1)%26gt%3B>",
+      "ARGS": "<iframe srcdoc=<svg/o%26%23x6Eload%26equals%3Balert%26lpar%3B1)%26gt%3B>",
+      "BODY": "<iframe srcdoc=<svg/o%26%23x6Eload%26equals%3Balert%26lpar%3B1)%26gt%3B>",
+      "COOKIE": "<iframe srcdoc=<svg/o%26%23x6Eload%26equals%3Balert%26lpar%3B1)%26gt%3B>",
+      "USER-AGENT": "<iframe srcdoc=<svg/o%26%23x6Eload%26equals%3Balert%26lpar%3B1)%26gt%3B>",
+      "REFERER": "<iframe srcdoc=<svg/o%26%23x6Eload%26equals%3Balert%26lpar%3B1)%26gt%3B>",
+      "HEADER": "<iframe srcdoc=<svg/o%26%23x6Eload%26equals%3Balert%26lpar%3B1)%26gt%3B>",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

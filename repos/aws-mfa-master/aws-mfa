@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import awsmfa
+
+if __name__ == "__main__":
+    awsmfa.main()

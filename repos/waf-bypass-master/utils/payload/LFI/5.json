@@ -1,0 +1,15 @@
+{
+    "payload": [
+      {
+        "URL": "..%255C..%255C..%255C..%255C..%255C..%255C..%255C..%255C%252Fetc%252Fpasswd",
+        "ARGS": "param%RND%=..%255C..%255C..%255C..%255C..%255C..%255C..%255C..%255C%252Fetc%252Fpasswd",
+        "BODY": "param%RND%=..%255C..%255C..%255C..%255C..%255C..%255C..%255C..%255C%252Fetc%252Fpasswd",
+        "COOKIE": "..%255C..%255C..%255C..%255C..%255C..%255C..%255C..%255C%252Fetc%252Fpasswd",
+        "USER-AGENT": "..%255C..%255C..%255C..%255C..%255C..%255C..%255C..%255C%252Fetc%252Fpasswd",
+        "REFERER": "..%255C..%255C..%255C..%255C..%255C..%255C..%255C..%255C%252Fetc%252Fpasswd",
+        "HEADER": "..%255C..%255C..%255C..%255C..%255C..%255C..%255C..%255C%252Fetc%252Fpasswd",
+        "ENCODE": "Base64 UTF-16",
+        "BLOCKED": true
+      }
+    ]
+  }

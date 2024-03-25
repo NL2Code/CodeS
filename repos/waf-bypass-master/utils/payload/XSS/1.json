@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "%3Csvg%2Fonload%3Dalert%28%RND%%29%2F%2F",
+      "ARGS": "%3Csvg%2Fonload%3Dalert%28%RND%%29%2F%2F",
+      "BODY": "%3Csvg%2Fonload%3Dalert%28%RND%%29%2F%2F",
+      "COOKIE": "%3Csvg%2Fonload%3Dalert%28%RND%%29%2F%2F",
+      "USER-AGENT": "%3Csvg%2Fonload%3Dalert%28%RND%%29%2F%2F",
+      "REFERER": "%3Csvg%2Fonload%3Dalert%28%RND%%29%2F%2F",
+      "HEADER": "%3Csvg%2Fonload%3Dalert%28%RND%%29%2F%2F",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

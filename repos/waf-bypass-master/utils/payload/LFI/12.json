@@ -1,0 +1,15 @@
+{
+    "payload": [
+      {
+        "URL": "..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini",
+        "ARGS": "param%RND%=..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini",
+        "BODY": "param%RND%=..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini",
+        "COOKIE": "..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini",
+        "USER-AGENT": "..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini",
+        "REFERER": "..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini",
+        "HEADER": "..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cboot.ini",
+        "ENCODE": "Base64 UTF-16",
+        "BLOCKED": true
+      }
+    ]
+  }

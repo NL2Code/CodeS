@@ -1,0 +1,56 @@
+# ==================================================================
+# module list
+# ------------------------------------------------------------------
+# darknet       latest (git)
+# ==================================================================
+
+FROM ubuntu:20.04
+ENV LANG C.UTF-8
+RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
+    PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
+    GIT_CLONE="git clone --depth 10" && \
+
+    rm -rf /var/lib/apt/lists/* \
+           /etc/apt/sources.list.d/cuda.list \
+           /etc/apt/sources.list.d/nvidia-ml.list && \
+
+    apt-get update && \
+
+# ==================================================================
+# tools
+# ------------------------------------------------------------------
+
+    DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
+        build-essential \
+        apt-utils \
+        ca-certificates \
+        wget \
+        git \
+        vim \
+        libssl-dev \
+        curl \
+        unzip \
+        unrar \
+        cmake \
+        && \
+
+# ==================================================================
+# darknet
+# ------------------------------------------------------------------
+
+    $GIT_CLONE https://github.com/AlexeyAB/darknet ~/darknet && \
+    cd ~/darknet && \
+    sed -i 's/GPU=0/GPU=0/g' ~/darknet/Makefile && \
+    sed -i 's/CUDNN=0/CUDNN=0/g' ~/darknet/Makefile && \
+    make -j"$(nproc)" && \
+    cp ~/darknet/include/* /usr/local/include && \
+    cp ~/darknet/darknet /usr/local/bin && \
+
+# ==================================================================
+# config & cleanup
+# ------------------------------------------------------------------
+
+    ldconfig && \
+    apt-get clean && \
+    apt-get autoremove && \
+    rm -rf /var/lib/apt/lists/* /tmp/* ~/*

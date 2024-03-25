@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% import "_pages.html" as page %}
+
+{% block content %}
+<div class="row clearfix">
+    <div class="col-md-8 column">
+        <ul class="nav nav-tabs">
+            <li {% if show_followed %}class="active"{% endif %}>
+                 <a href="{{ url_for('user.show_follower',nickname=user.nickname) }}">Followers</a>
+            </li>
+            <li {% if not show_followed %}class="active"{% endif %}>
+                 <a href="{{ url_for('user.show_followed',nickname=user.nickname) }}">Following</a>
+            </li>
+        </ul>
+        <br>
+        {% for follow in follows %}
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{{ url_for('user.users',nickname=follow.user.nickname) }}">{{ follow.user.nickname }}</a>
+                <span class="right">{{ moment(follow.timestamp).fromNow() }}</span>
+                {% if current_user.operation(Permission.FOLLOW) and user != current_user %}
+                    {% if not current_user.is_following(user) %}
+                    <a class="right" href="{{ url_for('user.follow', nickname=user.nickname) }}">Follow</a>
+                    {% else %}
+                    <a class="right" href="{{ url_for('user.unfollow', nickname=user.nickname) }}">Unfollow</a>
+                    {% endif %}
+                {% endif %}
+            </li>
+        </ul>
+        {% endfor %}
+        <hr>
+        <div class="pagination">
+            {{ page.pages(pagination, 'user.follows', nickname=user.nickname) }}
+        </div>
+        <hr>
+    </div>
+    <div class="col-md-4 column">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h4 class="panel-title">Recommended Posts</h4>
+            </div>
+            <div class="panel-body">
+                {% if current_user == user %}
+                {% for post in current_user.followed_posts %}
+                {% if not post.disabled and not post.draft %}
+                <a href="{{ url_for('user.post', id=post.id) }}">
+                    {{ post.title }}
+                </a><hr>
+                {% endif %}
+                {% endfor %}
+                {% else %}
+                {% for post in user.posts %}
+                {% if not post.disabled and not post.draft %}
+                <a href="{{ url_for('user.post', id=post.id) }}">
+                    {{ post.title }}
+                </a><hr>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

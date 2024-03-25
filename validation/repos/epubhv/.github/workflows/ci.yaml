@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install mecab
+        run: |
+          sudo apt-get -y install mecab libmecab-dev
+      - name: install python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+          cache: "pip" # caching pip dependencies
+      - name: Setup PDM
+        uses: pdm-project/setup-pdm@v3
+      - name: install all dependencies
+        run: |
+          pdm install -d
+      - name: Check format lint
+        run: |
+          pdm run lint
+      - name: Check types
+        run: |
+          pdm run typing
+      - name: Test
+        run: |
+          pdm run test
+
+      - name: Test building
+        run: |
+          pdm build
+
+      - name: Test Integers
+        run: |
+          pdm run python -m epubhv tests/test_epub/sanguo.epub
+          pdm run python -m epubhv tests/test_epub/sanguo.epub --convert s2t --punctuation auto
+          pdm run python -m epubhv sanguo-v-s2t.epub --h
+          pdm run python -m epubhv --h tests/test_epub/ --ruby # test ruby
+          pdm run python -m epubhv --h tests/test_epub/books/animal.epub --cantonese --ruby # ruby and cantonese
+

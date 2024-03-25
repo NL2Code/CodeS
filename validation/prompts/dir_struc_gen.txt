@@ -1,0 +1,16 @@
+Below is a detailed README.md of repository. Please write a repository sketch in the form of a tree including all folders and files, as well as the import details for each python file.
+
+---
+README.md
+---
+{readme}
+
+---
+Repository Sketch
+---
+Here is a practicable repository sketch.
+
+```
+[GENERATED]
+{sketch}
+```

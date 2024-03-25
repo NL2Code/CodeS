@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Profile</h1><hr>
+<form action="" method="post" name="edit">
+    <p>
+        {{form.hidden_tag()}}
+        Your nickname：<br>
+        {{form.nickname(class="form-control")}}<br>
+        {% for error in form.nickname.errors %}
+            <span style="color: red;">{{error}}</span>
+        {% endfor %}<br>
+        Personal Signature：<br>
+        {{form.about_me(class="form-control",rows="4")}}<br>
+        {% for error in form.about_me.errors %}
+            <span style="color: red;">{{error}}</span>
+        {% endfor %}<br>
+    </p>
+    <p><input class="btn btn-default" type="submit" value="保存资料"></p>
+</form>
+{% endblock %}

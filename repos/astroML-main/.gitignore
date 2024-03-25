@@ -1,0 +1,33 @@
+*~
+*.pyc
+*.so
+
+*.tgz
+*.pkl
+*.pdf
+*.png
+
+astroML.tgz
+build
+dist
+MANIFEST
+doc/_build
+doc/examples/
+doc/book_figures/
+doc/paper_figures/
+doc/modules/generated/
+book_figures/*/*.pkl
+
+# Vim temporaries
+.*.sw[op]
+
+# PyCharm
+.idea
+
+# pyenv
+.python-version
+
+.coverage
+.pytest_cache
+.tox
+.hypothesis

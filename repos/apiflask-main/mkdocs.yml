@@ -1,0 +1,97 @@
+site_name: APIFlask
+site_description: A lightweight Python web API framework.
+site_url: https://apiflask.com
+docs_dir: docs
+theme:
+  name: material
+  custom_dir: docs/_templates
+  logo: _assets/white-logo.png
+  favicon: _assets/favicon.png
+  palette:
+    primary: deep orange
+  icon:
+    repo: fontawesome/brands/github
+  language: en
+repo_url: https://github.com/apiflask/apiflask
+repo_name: apiflask/apiflask
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/apiflask/apiflask
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/apiflask
+  alternate:
+    - name: English
+      link: https://apiflask.com
+      lang: en
+    - name: فارسی
+      link: https://fa.apiflask.com
+      lang: fa
+    - name: 简体中文
+      link: https://zh.apiflask.com
+      lang: zh
+copyright:
+  Copyright &copy; 2021 <a href="https://github.com/greyli" target="_blank" rel="noopener">Grey Li</a><br>
+  <span style="color:#555">Hosted with</span> <a href="https://www.netlify.com" target="_blank" rel="noopener">Netlify</a>
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.progressbar
+  - attr_list
+  - toc:
+        permalink: True
+nav:
+  - Home: index.md
+  - Documentation Index: docs.md
+  - Migrating from Flask: migrating.md
+  - Basic Usage: usage.md
+  - Request Handling: request.md
+  - Response Formatting: response.md
+  - Data Schema: schema.md
+  - Authentication: authentication.md
+  - OpenAPI Generating: openapi.md
+  - API Documentations: api-docs.md
+  - Configuration: configuration.md
+  - Error Handling: error-handling.md
+  - Examples: examples.md
+  - Tips: tips.md
+  - API Reference:
+    - APIFlask: api/app.md
+    - APIBlueprint: api/blueprint.md
+    - Exceptions: api/exceptions.md
+    - OpenAPI: api/openapi.md
+    - Schemas: api/schemas.md
+    - Fields: api/fields.md
+    - Validators: api/validators.md
+    - Route: api/route.md
+    - Security: api/security.md
+    - Helpers: api/helpers.md
+    - Commands: api/commands.md
+  - Comparison and Motivations: comparison.md
+  - Authors: authors.md
+  - Changelog: changelog.md
+  - Migration Guide: migration_guide.md
+  - Contributing Guide: contributing.md
+  - Donate to APIFlask: https://opencollective.com/apiflask
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            heading_level: 2
+watch:
+  - src/apiflask
+  - README.md
+  - examples/README.md
+  - CHANGES.md
+  - CONTRIBUTING.md
+extra_css:
+  - _assets/extra.css

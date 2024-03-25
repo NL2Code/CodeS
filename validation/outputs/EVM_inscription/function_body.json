@@ -1,0 +1,12 @@
+[
+    {
+        "readme": "# EVM Inscription",
+        "repo_sketch": ".\n\u251c\u2500\u2500 EVM_inscription.py\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 batch_inscription.py\n\u2514\u2500\u2500 wallet_generator.py",
+        "relevant_file_paths": [],
+        "relevant_file_sketches": "---\nCurrent File Sketch/1\n---\nHere is the file sketch of `wallet_generator.py`.\n\n```python\nimport os\nfrom web3 import Web3\n\n\ndef generate_wallets(num_wallets, file_path):\n    \"\"\"TODO\"\"\"\n\n\nif __name__ == \"__main__\":\n    num_wallets_to_generate = 10\n    output_file_path = \"wallets.txt\"\n    generate_wallets(num_wallets_to_generate, output_file_path)\n```",
+        "current_file_path": "wallet_generator.py",
+        "instruction": "Below is a detailed README.md of repository, repository sketch, as well as some relevant file sketches. Please fill the function body for the given function header.\n\n---\nREADME.md\n---\n# EVM Inscription\n\n---\nRepository Sketch\n---\nHere is a practicable repository sketch.\n\n```\n.\n\u251c\u2500\u2500 EVM_inscription.py\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 batch_inscription.py\n\u2514\u2500\u2500 wallet_generator.py\n```\n\n---\nCurrent File Sketch/1\n---\nHere is the file sketch of `wallet_generator.py`.\n\n```python\nimport os\nfrom web3 import Web3\n\n\ndef generate_wallets(num_wallets, file_path):\n    \"\"\"TODO\"\"\"\n\n\nif __name__ == \"__main__\":\n    num_wallets_to_generate = 10\n    output_file_path = \"wallets.txt\"\n    generate_wallets(num_wallets_to_generate, output_file_path)\n```\n\n---\nFunction Complement\n---\ndef generate_wallets(num_wallets, file_path):\n",
+        "input": "",
+        "output": "Here is a complete function body.\n\n```python\ndef generate_wallets(num_wallets, file_path):\n    if os.path.exists(file_path):\n        print(f\"File '{file_path}' already exists. No wallets generated.\")\n        return\n    w3 = Web3()\n    with open(file_path, \"w\") as file:\n        for _ in range(num_wallets):\n            account = w3.eth.account.create()\n            address = account.address\n            private_key = account._private_key.hex()\n            file.write(f\"Address: {address}\\nPrivate Key: {private_key}\\n\\n\")\n    print(\n        f\"{num_wallets_to_generate} wallets have been generated and saved to {output_file_path}\"\n    )\n```"
+    }
+]

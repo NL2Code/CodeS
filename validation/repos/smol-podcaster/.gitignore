@@ -1,0 +1,9 @@
+.env
+venv
+myenv
+
+*.wav
+
+/podcasts-clean-transcripts/*.md
+/podcasts-raw-transcripts/*.json
+/podcasts-results/*

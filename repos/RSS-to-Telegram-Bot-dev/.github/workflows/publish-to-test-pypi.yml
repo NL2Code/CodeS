@@ -1,0 +1,42 @@
+name: Publish to Test PyPI
+on:
+  push:
+    branches:
+      - dev
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '**.sample'
+  workflow_dispatch: ~
+jobs:
+  build-n-publish:
+    name: Build and publish package to Test PyPI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+      - name: Install pypa/build
+        run: |
+          python -m pip install build --user
+      - name: Build a binary wheel and a source tarball
+        run: |
+          git describe --tags --always | \
+            sed -E \
+              -e 's#^v##' \
+              -e 's#([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+)-([[:digit:]]+)(-.+)?#\1.post\2#g' \
+              -e 's#^#__version__ = "#' \
+              -e 's#$#"#' \
+            >src/version.py
+          python -m build --sdist --wheel --outdir dist/ .
+      - name: Publish distribution to Test PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
+          print_hash: true
+          skip_existing: true

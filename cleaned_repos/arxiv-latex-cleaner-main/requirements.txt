@@ -1,0 +1,4 @@
+absl_py>=0.12
+pillow
+pyyaml
+regex

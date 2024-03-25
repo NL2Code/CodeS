@@ -1,0 +1,10 @@
+include README.md
+include CHANGES.md
+include tox.ini
+include requirements/*.txt
+include src/apiflask/py.typed
+graft examples
+prune examples/pagination/.mypy_cache
+graft tests
+prune site
+global-exclude *.pyc

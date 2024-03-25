@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "%24%7Bjndi%3Adns%3A%2F%2Fexample.com%2Fa%7D",
+      "ARGS": "%24%7Bjndi%3Adns%3A%2F%2Fexample.com%2Fa%7D",
+      "BODY": "param%RND%=%24%7Bjndi%3Adns%3A%2F%2Fexample.com%2Fa%7D",
+      "COOKIE": "%24%7Bjndi%3Adns%3A%2F%2Fexample.com%2Fa%7D",
+      "USER-AGENT": "%24%7Bjndi%3Adns%3A%2F%2Fexample.com%2Fa%7D",
+      "REFERER": "%24%7Bjndi%3Adns%3A%2F%2Fexample.com%2Fa%7D",
+      "HEADER": "%24%7Bjndi%3Adns%3A%2F%2Fexample.com%2Fa%7D",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

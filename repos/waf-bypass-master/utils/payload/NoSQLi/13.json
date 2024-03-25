@@ -1,0 +1,9 @@
+{
+  "payload": [
+    {
+      "BODY": "{\"username\": {\"$ne\": null}, \"password\": {\"$ne\": null}}",
+      "JSON": true,
+      "BLOCKED": true
+    }
+  ]
+}

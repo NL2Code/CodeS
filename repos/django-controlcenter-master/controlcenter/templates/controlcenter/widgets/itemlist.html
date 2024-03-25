@@ -1,0 +1,56 @@
+{% load controlcenter_tags %}
+<table class="controlcenter__table"{% if widget.sortable and widget.values|length > 1 %} data-sortable{% endif %}>
+    {% if widget.list_display and widget.values %}
+        <thead class="controlcenter__table__thead">
+            <tr class="controlcenter__table__tr">
+                {% for attr in widget.list_display %}
+                    {% if attr == sharp %}
+                        <th class="controlcenter__table__th controlcenter__table__th--row-counter">{{ sharp }}</th>
+                    {% else %}
+                        <th class="controlcenter__table__th controlcenter__table__th--{{ attr }}">{{ widget|attrlabel:attr|capfirst }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        </thead>
+    {% endif %}
+    <tbody class="controlcenter__table__tbody">
+        {% for obj in widget.values %}
+            <tr class="controlcenter__table__tr">
+                {% change_url widget obj as url %}
+                {% for attr in widget.list_display %}
+                    <td class="controlcenter__table__td controlcenter__table__td--{% if attr == sharp %}row-counter{% else %}{{ attr }}{% endif %}">
+                        {% if attr == sharp %}
+                            {% if url and attr in widget.list_display_links or url and not widget.list_display_links and forloop.first %}
+                                <a href="{{ url }}">{{ forloop.parentloop.counter }}</a>
+                            {% else %}
+                                {{ forloop.parentloop.counter }}
+                            {% endif %}
+                        {% elif url and attr in widget.list_display_links or url and not widget.list_display_links and forloop.first %}
+                            <a href="{{ url }}">{% attrvalue widget obj attr %}</a>
+                        {% else %}
+                            {% attrvalue widget obj attr %}
+                        {% endif %}
+                    </td>
+                {% empty %}
+                    {% if obj|is_sequence %}
+                        {% for value in obj %}
+                            <td class="controlcenter__table__td">
+                                {% if url and forloop.first %}
+                                    <a href="{{ url }}">{{ value }}</a>
+                                {% else %}
+                                    {{ value }}
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    {% else %}
+                        <td class="controlcenter__table__td">Object is not iterable.</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% empty %}
+            <tr class="controlcenter__table__tr">
+                <td class="controlcenter__table__td controlcenter__table__td--novalues">{{ widget.empty_message }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

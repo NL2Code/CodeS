@@ -1,0 +1,15 @@
+{
+  "payload": [
+    {
+      "URL": "<keygen autofocus onfocus=alert(1)>",
+      "ARGS": "<keygen autofocus onfocus=alert(1)>",
+      "BODY": "<keygen autofocus onfocus=alert(1)>",
+      "COOKIE": "<keygen autofocus onfocus=alert(1)>",
+      "USER-AGENT": "<keygen autofocus onfocus=alert(1)>",
+      "REFERER": "<keygen autofocus onfocus=alert(1)>",
+      "HEADER": "<keygen autofocus onfocus=alert(1)>",
+      "ENCODE": "Base64 UTF-16 HTML-ENTITY",
+      "BLOCKED": true
+    }
+  ]
+}

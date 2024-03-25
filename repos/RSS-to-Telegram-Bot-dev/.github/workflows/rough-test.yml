@@ -1,0 +1,40 @@
+name: Rough Test
+on:
+  pull_request: ~
+  workflow_dispatch: ~
+  push:
+    branches-ignore:
+      - dependabot/**
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [ '3.9', '3.10', '3.11' ]
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
+    name: Python ${{ matrix.version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python ${{ matrix.version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.version }}
+          cache: 'pip'
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip wheel setuptools
+          pip install -r requirements.txt
+      - name: Test
+        run: |
+          echo 'TOKEN=test' > .env
+          echo 'MANAGER=-1' >> .env
+          echo 'DEBUG=1' >> .env
+          echo 'PORT=60088' >> .env
+          echo 'TABLE_TO_IMAGE=1' >> .env
+          echo 'MULTIPROCESSING=1' >> .env
+          python3 -u telegramRSSbot.py

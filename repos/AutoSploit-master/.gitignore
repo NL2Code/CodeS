@@ -1,0 +1,10 @@
+*.pyc
+.idea/*
+api.p
+hosts.txt
+secret.p
+uid.p
+etc/tokens/*
+autosploit_out/*
+venv/*
+etc/json/*

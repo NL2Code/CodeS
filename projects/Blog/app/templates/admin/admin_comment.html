@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% import "_pages.html" as page %}
+
+{% block content %}
+<h3>
+    <a href="{{ url_for('admin.admin_post') }}">Manage Posts</a> |
+    <i>Manage Comments <span class="badge">{{ nums }}</span></i>
+</h3><hr>
+{% for comment in comments %}
+<div>
+    {% if comment.disabled %}
+    <i><font color="#d2691e">This comment has been deleted.</font></i><br>
+    <div>
+        <img src="{{comment.author.gravatar(size=30)}}">
+        <a href="{{url_for('user.users', nickname=comment.author.nickname)}}">
+            {{ comment.author.nickname }}
+        </a>:
+        <span class="right">{{ moment(comment.timestamp).fromNow() }}Publish</span>
+    </div>
+    <h4 class="comments">
+        {% if comment.body_html %}
+            {{ comment.body_html | safe }}
+        {% else %}
+            {{ comment.body }}
+        {% endif %}
+    </h4>
+    {% endif %}
+    {% if not comment.disabled %}
+    <div>
+        <img src="{{comment.author.gravatar(size=30)}}">
+        <a href="{{url_for('user.users', nickname=comment.author.nickname)}}">
+            {{ comment.author.nickname }}
+        </a>:
+        <span class="right">{{ moment(comment.timestamp).fromNow() }}Publish</span>
+    </div>
+    <p class="comments">
+        {% if comment.body_html %}
+            {{ comment.body_html | safe }}
+        {% else %}
+            {{ comment.body }}
+        {% endif %}
+    </p>
+    {% endif %}
+</div>
+<div>
+    {% if comment.disabled %}
+    <a class="btn btn-default btn-xs" href="{{ url_for('admin.admin_recover',id=comment.id,
+        page=page) }}">Recover</a>
+    {% else %}
+    <a class="btn btn-danger btn-xs" href="{{ url_for('admin.admin_delate',id=comment.id,
+        page=page) }}">Delete</a>
+    {% endif %}
+</div>
+<hr>
+{% endfor %}
+<div class="pagination">
+    {{ page.pages(pagination, 'admin.admin_comment') }}
+</div>
+{% endblock %}

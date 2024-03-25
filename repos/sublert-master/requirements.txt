@@ -1,0 +1,5 @@
+termcolor
+tld==0.9.6
+requests
+dnspython
+psycopg2-binary

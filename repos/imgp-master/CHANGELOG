@@ -1,0 +1,134 @@
+imgp v2.9
+2023-09-10
+
+- Support converting P mode PNGs
+- Fix AttributeError: module 'PIL.Image' has no attribute 'Resampling'
+- Fix ANTIALIAS is deprecated and will be removed in Pillow 10
+- Add Python 3.11 support
+- Remove support for Python 3.7 (EOL)
+
+-------------------------------------------------------------------------------
+
+imgp v2.8
+2020-12-01
+
+- option `-M` to specify minimum resolution of iamges to process
+- option `-H` (process hidden files) replaces `-d`
+- option `-d` (debug mode) replaces `-z`
+- option `-N` and `--nearest` (nearest neighbour for PNG) replace `--nn`
+- option `-P` (save JPEG as progressive) replaces `--pr`
+
+-------------------------------------------------------------------------------
+
+imgp v2.7
+2019-12-21
+
+What's in?
+- Code lint fixes
+- Package uploaded to PyPI
+- New auto-generated packages for - CentOS, Debian, Fedora
+- Update copyright year
+
+-------------------------------------------------------------------------------
+
+imgp v2.6
+2018-10-20
+
+What's in?
+- Support for progressive JPEG
+- Some bug fixes and documentation update
+- Package generation for some more distros
+
+-------------------------------------------------------------------------------
+
+imgp v2.5
+2018-02-19
+
+What's in?
+- New option `--nn` to use nearest neighbour interpolation for PNG files
+- Identify Multi Picture Object (MPO) files
+
+-------------------------------------------------------------------------------
+
+imgp v2.4.1
+2017-08-29
+
+What's in?
+- Integrated with PackageCore to auto-generate packages in Travis CI.
+
+-------------------------------------------------------------------------------
+
+imgp v2.4
+2017-07-24
+
+What's in?
+- New option `--quality` (`-q`) to specify quality [default: 75]
+- Homebrew tap for OS X users [`brew install jarun/imgp/imgp`]
+- Option `--quiet` is now `--mute`
+- use global fill color white (#ffffff) for alpha channel
+
+-------------------------------------------------------------------------------
+
+imgp v2.3
+2017-04-17
+
+Modifications
+- Show number of images not processed due to low resolution
+- Option `--size` to limit processing by minimum image size
+
+-------------------------------------------------------------------------------
+
+imgp v2.2
+2016-10-10
+
+Modifications
+- Options --res and --scale unified as --res
+- Support negative degrees to rotate anti-clockwise
+- Show total converted images, if any
+- Show total execution time
+- Tested with pillow-simd on SIMD processor
+
+-------------------------------------------------------------------------------
+
+imgp v2.1
+2016-10-05
+
+Modifications
+- Rename utility to `imgp`
+- Support adapting to either hres or vres
+
+-------------------------------------------------------------------------------
+
+imgd v2.0
+2016-09-30
+
+News
+- imgd is available on AUR
+
+Modifications
+- process current directory, if source unspecified
+- completion scripts for bash, fish and zsh
+- option `--processimgd` is now `--includeimgd`
+- option `--keep` to skip images with matching hres/vres
+- skip symbolic links to avoid recursive loops
+- PEP8 compliance
+
+-------------------------------------------------------------------------------
+
+imgd v1.0
+2016-08-17
+
+Initial features
+- resize by percentage or resolution
+- rotate clockwise by specified angle
+- adaptive resize considering orientation
+- brute force to a resolution
+- optimize images to save more space
+- convert PNG to JPEG
+- erase exif metadata
+- force only larger to smaller resize
+- process directories recursively
+- overwrite source image option
+- minimal dependencies
+
+-------------------------------------------------------------------------------

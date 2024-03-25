@@ -1,0 +1,10 @@
+{
+  "payload": [
+    {
+      "ARGS": "param%RND%=admin%2A%29%28%28%7Cuserpassword=%2A%29",
+      "BODY": "param%RND%=admin%2A%29%28%28%7Cuserpassword=%2A%29",
+      "ENCODE": "Base64 UTF-16",
+      "BLOCKED": true
+    }
+  ]
+}

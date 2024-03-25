@@ -1,0 +1,118 @@
+==========================
+FeinCMS 1.12 release notes
+==========================
+
+Welcome to FeinCMS 1.12!
+
+.. warning::
+
+   This is a cleanup release. Lots of changes ahead! Please report problems
+   in our issue tracker on Github_!
+
+.. _Github: https://github.com/feincms/feincms/issues
+
+
+Template content requires explicit list of templates
+====================================================
+
+The template refactor in Django removed the ability to enumerate
+templates in template folders. Because of that templates must now
+be explicitly specified when creating the content type::
+
+    Page.create_content_type(TemplateContent, TEMPLATES=[
+        ('content/template/something1.html', 'something'),
+        ('content/template/something2.html', 'something else'),
+        ('base.html', 'makes no sense'),
+    ])
+
+Also, you need to add a model migration which renames the old
+``filename`` field to the new ``template`` field and prepends
+``content/template/`` to all filenames::
+
+    # -*- coding: utf-8 -*-
+    from __future__ import unicode_literals
+
+    from django.db import models, migrations
+
+
+    class Migration(migrations.Migration):
+
+        dependencies = [
+            ('page', 'WHATEVER IS APPROPRIATE'),
+        ]
+
+        operations = [
+            migrations.RenameField('TemplateContent', 'filename', 'template'),
+            migrations.RunSQL(
+                "UPDATE page_page_templatecontent"
+                " SET template='content/template/' || template;",
+                "UPDATE page_page_templatecontent"
+                " SET template=REPLACE(template, 'content/template/', '');"
+            ),
+        ]
+
+
+The blog module has been completely removed
+============================================
+
+If you need a blog, have a look at Elephantblog_ instead.
+
+.. _Elephantblog: https://github.com/feincms/feincms-elephantblog
+
+
+Caching of pages in various page manager methods has been removed
+=================================================================
+
+Some methods such as `Page.objects.for_request` automatically cached
+the page instances. This behavior lead to non-obvious problems and has
+therefore been removed.
+
+
+Backwards-incompatible changes
+==============================
+
+* FeinCMS requires Django 1.7 or better.
+
+* Django has removed comments support a long time ago, which meant
+  that our bundled comments content in ``feincms.content.comments``
+  was broken for some time. It has been completely removed.
+
+* ``feincms.content.rss`` has been removed, use ``feincms-syndication``
+  instead.
+
+
+Removal of deprecated features
+------------------------------
+
+South is not supported anymore? Django 1.7 and better only?
+
+``feincms.views.cbv`` has been removed. Use ``feincms.urls`` and
+``feincms.views`` directly instead.
+
+
+New deprecations
+================
+
+* None.
+
+
+Notable features and improvements
+=================================
+
+* Rich text cleaning using Tidy has been removed.
+
+* ``FEINCMS_JQUERY_NO_CONFLICT`` is gone. Either use ``django.jQuery`` or
+  ``feincms.jQuery`` explicitly.
+
+* Some support has been added for ``django-filer``.
+
+Bugfixes
+========
+
+* Too many to list.
+
+
+Compatibility with Django and other apps
+========================================
+
+FeinCMS 1.12 requires Django 1.7 or better.
