@@ -28,25 +28,22 @@ The impressive performance of large language models (LLMs) on code-related tasks
 └── validation # *evaluation* scripts
 ```
 
-## Creating Command Data for 100 Repositories
+## Creating Instruction Data for 100 Repositories
 
-1. Download the selected repositories to the `repos` directory and unzip them.
-2. Preprocess the repositories:
+1. Download the selected repositories to the `./repos` directory and unzip them;
+2. Preprocess the repositories;
 ```bash
 bash run_step1_clean.sh
 ```
-3. Extract command training data for `RepoSketcher`, `FileSketcher`, and `SketchFiller`:
+3. Extract instruction training data for `RepoSketcher`, `FileSketcher`, and `SketchFiller`.
 ```bash
 bash run_step2_extract_sketch.sh
-```
-4. Compile the command data from 100 repositories:
-```bash
 bash run_step3_make_data.sh
 ```
 
 ## Training
 
-1. Place the created command data into `./train/data` and configure `dataset_info.json` according to the structure described at https://github.com/hiyouga/LLaMA-Factory/tree/main/data.
+1. Place the created instruction data into `./train/data` and configure `dataset_info.json` according to the structure described at https://github.com/hiyouga/LLaMA-Factory/tree/main/data.
 
 2. Start the training process:
 
