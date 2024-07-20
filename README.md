@@ -71,14 +71,3 @@ python ./codes/validation/evaluation-scripts/transfer_output_to_repo.py
 ```bash
 python ./codes/validation/evaluation-scripts/batch_eval/get_metric.py
 ```
-
-## Reference
-If you want to use the models, you need to cite our following paper:
-```
-@article{zan2024codes,
-  title={CodeS: Natural Language to Code Repository via Multi-Layer Sketch},
-  author={Zan, Daoguang and Yu, Ailun and Liu, Wei and Chen, Dong and Shen, Bo and Li, Wei and Yao, Yafen and Gong, Yongshun and Chen, Xiaolin and Guan, Bei and others},
-  journal={arXiv preprint arXiv:2403.16443},
-  year={2024}
-}
-```
